@@ -19,38 +19,6 @@ def parse_args():
     parser.add_argument("--time_test", "-tt", nargs=2, default=0)
     return parser.parse_args(sys.argv[1:])
 
-def build_arg(net):
-    arg = net.build_arg()
-
-    print(f"ARG {green('nodes')}: {arg.nodes}")
-    print(f"ARG {green('edges')}")
-    count=0
-    for (u,v,attrs) in arg.edges(data=True):
-        print(f"ID: {count}, Type: {arg[u][v]['type']}, label: {arg[u][v]['debug_label']}")
-        count+=1
-        """ if v.data==[] or v.data==['Formaldehyde']: # or (len(v.data)<=2 and 'Formaldehyde' in v.data):
-            print(f"ID: {count}, Type: {arg[u][v]['type']}, label: {arg[u][v]['debug_label']}")
-            count+=1 """
-
-    return arg
-
-
-def build_srt(net, arg):
-    if list(arg.nodes) == []:
-        print(red("Cannot build SRT as ARG is empty."))
-        return
-
-    srt = net.build_srt(arg)
-
-    # print(f'SRT {red("nodes")}: {srt.nodes(data=False)}')
-    print(f"SRT {green('edges')}")
-    count=0
-    for (u,v,attrs) in srt.edges(data=True):
-        print(f"ID: {count}, label: {srt[u][v]['label']}")
-        # print(f"\texpansion: {u}->{v.data[0].data}")
-        count+=1
-    return srt
-
 # Algorithms (alg) classification:
 #   - "exact" for exact reachable
 #   - "min" for mininum reachable
@@ -137,13 +105,6 @@ def main():
     else:
         calculate_reachable(sm, em, net, lim_reachable=True, algs=algs, take_first_n=int(args.first_n_sols))
 
-    #arg = build_arg(net)
-    # srt = build_arg(net, arg)
-
-
-    
-
-    
 
 
 if __name__=="__main__":

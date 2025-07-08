@@ -51,12 +51,6 @@ class cpn:
         self._post = self.build_post_incidence(self._transitions)
         self._incidence_matrix = self.build_incidence_matrix(self._pre, self._post)
 
-        self._clos_dict = {}
-
-
-        # self.calculate_mode(self._init_marking)
-        # mode_dict = self.sort_markings_by_mode(self._init_marking)
-        # self.build_srt(mode_dict)
     
     @property
     def places(self):
@@ -135,189 +129,6 @@ class cpn:
         # if self._verbose: print(f"\nIncidence matrix: {c}\n")
         return c
 
-    def build_arg(self):
-        if self._init_marking == []:
-            print(red(f"Cannot build ARG: initial marking empty."))
-            return nx.DiGraph()
-
-        if self._verbose:
-            print(green("BUILDING ARG..."))
-
-        (reachable_ps,_,_,_) = self.calculate_mode(self._init_marking)
-        ps_rps = list(powerset(reachable_ps))
-        arg_vertices = [vertex(list(x), label=f"arg_node_{i}") for (x,i) in zip(ps_rps, list(range(len(ps_rps))))]
-        arg = nx.DiGraph()
-
-        pbar = tqdm(total=len(arg_vertices)*len(arg_vertices))
-
-        for p_prime in arg_vertices:
-            pp_data = p_prime.data
-            print(f"p_prime: {pp_data}")
-            for p_double_prime in arg_vertices:
-                if p_double_prime is p_prime:
-                    pbar.update(1)
-                    continue
-                pdp_data = p_double_prime.data
-                print(f"p__double_prime: {pdp_data}")
-                if set(pp_data)!=set(pdp_data):
-                    (_, p_prime_MFS) = self.fireable_p_prime(pp_data, self._transitions)
-                    (_, p_double_prime_MFS) = self.fireable_p_prime(pdp_data, self._transitions)
-                    if set(p_prime_MFS) == set(p_double_prime_MFS):
-                        t_prime = p_prime_MFS
-                        t_prime_out = []
-                        for t in t_prime:
-                            t_prime_out.extend(list(self._graph.successors(t)))
-                        t_prime_out = list(set(t_prime_out))
-                        t_prime_in = []
-                        for t in t_prime:
-                            t_prime_in.extend(list(self._graph.predecessors(t)))
-                        t_prime_in = list(set(t_prime_in))
-                        p_prime_union_t_prime_out = set(pp_data) | set(t_prime_out)
-                        pp_minus_tp_in = set(pp_data) - set(t_prime_in)
-                        if pp_minus_tp_in <= set(pdp_data) and set(pdp_data) <= p_prime_union_t_prime_out:
-                            arg.add_edge(p_prime, p_double_prime, type='anonymous', debug_label=f"{p_prime}->{p_double_prime}")
-                    elif set(p_double_prime_MFS)<set(p_prime_MFS) and set(pdp_data)<set(pp_data):
-                        t_p_candidates = [list(x) for x in list(powerset(self._transitions))]
-                        # TODO: compute the mode for each node
-                        t_prime = False
-                        for t_set in t_p_candidates:
-                            in_places = []
-                            out_places = []
-                            for t in t_set:
-                                in_places.extend(list(self._graph.predecessors(t)))
-                                out_places.extend(list(self._graph.successors(t)))
-                            in_out = set(in_places) | set(out_places)
-                            pp_minus_in = set(pp_data) - set(in_places)
-
-                            if set(in_out) <= set(pp_data) and pp_minus_in <= set(pdp_data):
-                                t_prime = t_set
-                                break
-                        if t_prime:
-                            # if t_prime makes a cycle, then only if that cycle consumes more than
-                            # it produces can t_prime be a border edge.\
-                            # TODO: needs work
-                            """ potential_cycle_graph = nx.DiGraph()
-                            for trans in t_prime:
-                                potential_cycle_graph.add_edges_from(self._graph.in_edges(trans, data=True))
-                                potential_cycle_graph.add_edges_from(self._graph.out_edges(trans, data=True))
-
-                            add_border_edge = True
-
-                            try:
-                                cycle = nx.find_cycle(potential_cycle_graph, orientation='original')
-                                print(green("cycle found"))
-                                product = 1.0
-                                for i in range(int(len(cycle)/2)):
-                                    u1,v1,_ = cycle[2*i]
-                                    u2,v2,_ = cycle[2*i+1]
-                                    if u1 in self._places:
-                                        denominator = self._graph.edges[u1,v1]['weight']
-                                        nominator = self._graph.edges[u2,v2]['weight']
-                                    else:
-                                        denominator = self._graph.edges[u2,v2]['weight']
-                                        nominator = self._graph.edges[u1,v1]['weight']
-                                    product = product * (float(nominator)/denominator)
-                                if product < 1:
-                                    add_border_edge = True
-                            except nx.NetworkXNoCycle:
-                                add_border_edge = True
-                                
-                            if add_border_edge: """
-                            arg.add_edge(p_prime, p_double_prime, type='border', label=str(t_prime), debug_label=f"{p_prime}->{t_prime}->{p_double_prime}")
-                        
-                pbar.update(1)
-        pbar.close()
-            
-        return arg
-
-    # m is a marking (single vertex in arg), returns a set of markings (vertex in srt)
-    # all markings in r should share the same mode
-    # calculating without token mass to start, as it is easier
-    # RETURNS A LIST, NOT A VERTEX!!
-    def closure(self, m, arg):
-
-        if m in self._clos_dict:
-            return self._clos_dict[m]
-
-        clos = [m]
-        stack = [m]
-        visited = []
-
-        # DFS through all adjacent anonymous edges
-        while stack:
-            arg_vertex = stack.pop()
-            if arg_vertex in visited: continue
-            visited.append(arg_vertex)
-
-            marking_tokens = [(p, 1.0) for p in arg_vertex.data]
-            (reachable_ps,_,_,_) = self.calculate_mode(marking_tokens)
-
-            out_anon = [v for v in arg.successors(arg_vertex) if arg[arg_vertex][v]['type']=="anonymous" and set(arg_vertex.data) <= set(reachable_ps)]
-            out_anon_stack = [v for v in out_anon if v not in stack and v not in visited]
-            stack.extend(out_anon_stack)
-
-            clos.extend(list(set(out_anon)))
-
-        clos = list(set(clos))
-        #for marking in clos:
-        #    self._clos_dict[marking] = clos
-
-        return list(set(clos))
-
-    # r is a set of markings (set of vertices in arg -> single vertex in srt), returns a set of set of markings (multiple vertices to be made in srt)
-    def succ(self, r, arg, parent_name):
-        pbar = tqdm(total=len(r))
-        srt_ve = []
-        v_count = 0
-        for m in r:
-            border_edges = [(u,v) for (u,v) in arg.edges if u==m and v in arg.successors(m) and arg[m][v]['type']=='border']
-            for (pp, pdp) in border_edges:
-                # if pdp.data == []: continue
-                transition = arg[pp][pdp]['label']
-                new_vertex = vertex(self.closure(pdp, arg), label=f"{parent_name}.{v_count}")
-                v_count+=1
-                srt_ve.append((new_vertex, f"{parent_name}->{transition}->{new_vertex}"))
-            pbar.update(1)
-        pbar.close()
-        return srt_ve
-
-    def build_srt(self, arg) -> nx.Graph:
-        if self._verbose:
-            print(green("BUILDING SRT..."))
-
-        if self._init_marking==[]:
-            print(red("Cannot build SRT: initial marking empty."))
-            return nx.DiGraph()
-
-        m0 = vertex([p for (p,_) in self._init_marking], label="start_marking")
-        srt = nx.DiGraph()
-        
-        root = vertex(self.closure(m0, arg), label="root")
-        srt.add_node(root)
-
-        queue = [root]
-        visited = []
-        while queue:
-            curr_srt_vertex = queue.pop(0)
-            if curr_srt_vertex in visited: continue
-            visited.append(curr_srt_vertex)
-
-            new_vertices = self.succ(curr_srt_vertex.data, arg, parent_name=curr_srt_vertex.label)
-
-            for (v, t) in new_vertices:
-                srt.add_edge(curr_srt_vertex, v, label=t)
-                queue.append(v)
-        
-        return srt
-
-    def directly_fireable(self, places):
-        df_transitions = []
-        for t in self._transitions:
-            in_places = list(self._graph.predecessors(t))
-            if set(in_places)<=set(places):
-                df_transitions.append(t)
-        return df_transitions
-
     # Algorithm 1 in Complexity Analysis of Continuous Petri Nets
     # Fraca and Haddad, pg. 11
     # marking of type [("p1", 1.0), ("p2", 0.5)]
@@ -340,25 +151,7 @@ class cpn:
                 return (False, t_double_prime, None)
         return (True, t_double_prime, witness)
 
-    # Algorithm 1 in Complexity Analysis of Continuous Petri Nets
-    # Fraca and Haddad, pg. 11
-    # p_prime of type ["p1", "p2"]
-    # t_prime: subset of transitions
-    def fireable_p_prime(self, p, t_prime):
-        t_double_prime = [] # subset of transitions
-        p_prime = [x for x in p]
-        while set(t_double_prime)!=set(t_prime):
-            new = False
-            for t in list(set(t_prime)-set(t_double_prime)):
-                in_places = list(self._graph.predecessors(t))
-                if set(in_places)<=set(p_prime):
-                    t_double_prime.append(t)
-                    p_prime.extend(list(self._graph.successors(t)))
-                    new = True
-            if not new:
-                return (False, t_double_prime)
-        return (True, t_double_prime)
-
+    # MILPMax
     def maximize_goal_compound(self, sm, em, forbidden_FS=[], first_n_sols = 1):
         verb = self._verbose
         # convert marking to a |P| length vector
@@ -452,6 +245,7 @@ class cpn:
         print(red(f"MAX TRIES ({max_tries}) EXHAUSTED -- NO SOLUTION"))
         return (False, False, max_tries)
 
+    # AtLeastReachable + Binary Search
     # ASSUMES only one support in em (end marking)
     def max_min(self, sm, em, lim_reachability):
         verb = self._verbose
@@ -491,7 +285,7 @@ class cpn:
 
         return 0
 
-
+    # AtLeastReachable
     def at_least_reachable(self, sm, em, lim_reachability=True):
         # convert marking to a |P| length vector
         m0 = [0 for i in range(len(self._places))]
@@ -589,7 +383,7 @@ class cpn:
         return (False, False)
 
 
-    # Algorithm 2 in Complexity Analysis of Continuous Petri Nets
+    # Algorithm 2 (Reachable) in Complexity Analysis of Continuous Petri Nets
     # Fraca and Haddad, pg. 14
     def try_exact_reachable(self, sm, em, lim_reachability=True):
 
@@ -677,78 +471,7 @@ class cpn:
                 return (True, sol)
         return (False, False)
 
-
-    def find_firing_sequences(self, mode_to_markings, larger_mode, smaller_mode):
-        goal_markings = mode_to_markings[smaller_mode]
-        start_markings = mode_to_markings[larger_mode]
-
-        # no transitions need to be taken if we are already in our goal mode
-        if larger_modes==smaller_mode:
-            return []
-
-        for sm in start_markings:
-            for gm in goal_markings:
-                if reachable(sm, gm):
-                    return True
-
-
-    def sort_markings_by_mode(self, marked: List[Tuple[str, float]]) -> Dict[str, List[List[str]]]:
-        (reachable_ps,_,_,_) = self.calculate_mode(marked)
-        possible_markings = list(powerset(reachable_ps))
-        possible_markings = [list(subset) for subset in possible_markings]
-
-        unique_markings = {}
-        for pm in possible_markings:
-            # note: calculate_mode does not consider exact token mass, only token_mass>0
-            # so a token mass of 1.0 is added to the possible_markings as a placeholder
-            (_,_,fireable_transitions,_) = self.calculate_mode(list(zip(pm, [1.0]*len(pm))))
-            try:
-                unique_markings[",".join(fireable_transitions)].append(pm)
-            except KeyError:
-                unique_markings[",".join(fireable_transitions)] = [pm]
-
-        return unique_markings
-
-
-    def calculate_mode(self, marking: List[Tuple[str, float]]):
-        
-        (fireable_transitions, reachable_ps) = self.calculate_fireable_iter(marking)
-        unreachable_ps = [p for p in self._graph.nodes if self._graph.nodes[p]['type']=="place" and p not in reachable_ps]
-        unfireable_transitions = [t for t in self._graph.nodes if self._graph.nodes[t]['type']=="transition" and t not in fireable_transitions]
-
-        return (reachable_ps, unreachable_ps, fireable_transitions, unfireable_transitions)
-
-    def calculate_fireable_iter(self, marking):
-        fireable_transitions = []
-        reachable_ps = [p for (p, _) in marking]
-        stack = [p for (p, _) in marking]
-        do_not_revisit = []
-            
-        while stack:
-            place = stack.pop()
-
-            for trans in self._graph.successors(place):
-                if trans in do_not_revisit: continue
-                if len(list(self._graph.predecessors(trans)))==1:
-                    fireable_transitions.append(trans)
-                    do_not_revisit.append(trans)
-                    for pl in self._graph.successors(trans):
-                        if pl not in reachable_ps:
-                            reachable_ps.append(pl)
-                        if pl not in stack:
-                            stack.append(pl)
-                else:
-                    if all(p in reachable_ps for p in list(self._graph.predecessors(trans))):
-                        fireable_transitions.append(trans)
-                        do_not_revisit.append(trans)
-                        for pl in self._graph.successors(trans):
-                            if pl not in reachable_ps:
-                                reachable_ps.append(pl)
-                            if pl not in stack:
-                                stack.append(pl)
-
-        return (sorted(fireable_transitions), sorted(reachable_ps))
-
+    # Requires MOD to run!
     def get_flow_solutions(self, dg):
 
         print(warn("\n\nMOD FLOW SOLUTION CALCULATING..."))
@@ -795,7 +518,7 @@ class cpn:
                         data = dag.getPrintData(True)
                         dg.print(printer=printer, data=data)
 
-        
+    # Requires MOD to run!
     def turn_sol_into_DG(self, non_zero_transitions):
 
         # first, create the full solution DG
@@ -866,6 +589,7 @@ class cpn:
         return solDG
 
 
+    # Read cpn from .cpn file
     def load_cpn(self): 
         g = nx.DiGraph()
         places = []
@@ -984,65 +708,3 @@ class cpn:
 
             # end while
             return (True, g, places, transitions, marking)
-
-    
-def get_hamming_one_pairs(old_markings, new_markings):
-    pairs = []
-    for o_m in old_markings:
-        for n_m in new_markings:
-            # symmetric set difference
-            if (len(list(set(o_m) ^ set(n_m)))) <= 2:
-                pairs.append((o_m, n_m))
-
-    print(f"\nPairs: {pairs}")
-    return pairs
-
-class vertex:
-    def __init__(self, data, label="unlabelled", isList=True):
-        self._data = sorted(list(set(data))) if isList else data
-        self._name = (str(self._data))
-        self._label = str(label) if len(self._name)>20 else self._name
-
-    def __str__(self):
-        return self._label
-
-    def __repr__(self):
-        return self._label
-
-    def __eq__(self, other):
-        if isinstance(other, self.__class__):
-            return self._name == other.name
-        else:
-            return False
-
-    def __hash__(self):
-        return hash(self._name)
-
-    def __ne__(self, other):
-        return not self.__eq__(other)
-
-    def __lt__(self, other):
-        return self._name < other.name
-
-    @property
-    def data(self):
-        return self._data
-
-    @property
-    def name(self):
-        return self._name
-
-    @property
-    def num_markings(self):
-        return len(self._data)
-
-    @property
-    def preview(self):
-        if len(self._name)>20:
-            return self._name[:20]
-        else:
-            return self._name
-
-    @property
-    def label(self):
-        return self._label
