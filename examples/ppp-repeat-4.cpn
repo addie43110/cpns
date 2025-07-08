@@ -1,0 +1,1061 @@
+name "ppp-repeat-4"
+
+nodes [
+	place "h2o"
+	place "ribulose-5-phosphate"
+	place "p_{0,0}"
+	place "p_{0,1}"
+	place "p_{0,2}"
+	place "p_{0,3}"
+	place "p_{0,4}"
+	place "p_{0,5}"
+	place "p_{0,6}"
+	place "p_{0,7}"
+	place "p_{0,8}"
+	place "p_{0,9}"
+	place "p_{0,10}"
+	place "p_{0,11}"
+	place "p_{0,12}"
+	place "p_{0,13}"
+	place "fructose-6-phosphate"
+	place "p_{0,14}"
+	place "p_{0,15}"
+	place "p_{0,16}"
+	place "p_{0,17}"
+	place "p_{0,18}"
+	place "p_{0,19}"
+	place "p_{0,20}"
+	place "p_{0,21}"
+	place "p_{0,22}"
+	place "p_{0,23}"
+	place "p_{0,24}"
+	place "p_{0,25}"
+	place "p_{0,26}"
+	place "p_{0,27}"
+	place "p_{0,28}"
+	place "p_{0,29}"
+	place "p_{0,30}"
+	place "p_{0,31}"
+	place "p_{0,32}"
+	place "p_{0,33}"
+	place "p_{0,34}"
+	place "p_{0,35}"
+	place "p_{0,36}"
+	place "p_{0,37}"
+	place "p_{0,38}"
+	place "p_{0,39}"
+	place "p_{0,40}"
+	place "p_{0,41}"
+	place "p_{0,42}"
+	place "p_{0,43}"
+	place "p_{0,44}"
+	place "p_{0,45}"
+	place "p_{0,46}"
+	place "p_{0,47}"
+	place "p_{0,48}"
+	place "p_{0,49}"
+	place "p_{0,50}"
+	place "p_{0,51}"
+	place "p_{0,52}"
+	place "p_{0,53}"
+	place "p_{0,54}"
+	place "p_{0,55}"
+	place "p_{0,56}"
+	place "p_{0,57}"
+	place "p_{0,58}"
+	place "p_{0,59}"
+	place "p_{0,60}"
+	place "p_{0,61}"
+	place "p_{0,62}"
+	place "p_{0,63}"
+	place "p_{0,64}"
+	place "p_{0,65}"
+	place "p_{0,66}"
+	place "p_{0,67}"
+	place "p_{0,68}"
+	place "p_{0,69}"
+	place "p_{0,70}"
+	place "p_{0,71}"
+	place "p_{0,72}"
+	place "p_{0,73}"
+	place "p_{0,74}"
+	place "p_{0,75}"
+	place "p_{0,76}"
+	place "p_{0,77}"
+	place "p_{0,78}"
+	place "p_{0,79}"
+	place "p_{0,80}"
+	place "p_{0,81}"
+	place "p_{0,82}"
+	place "p_{0,83}"
+	place "p_{0,84}"
+	place "p_{0,85}"
+	place "p_{0,86}"
+	place "p_{0,87}"
+	place "p_{0,88}"
+	place "p_{0,89}"
+	place "p_{0,90}"
+	place "p_{0,91}"
+	place "p_{0,92}"
+	place "p_{0,93}"
+	place "p_{0,94}"
+	place "p_{0,95}"
+	place "p_{0,96}"
+	place "p_{0,97}"
+	place "p_{0,98}"
+	place "p_{0,99}"
+	place "p_{0,100}"
+	place "p_{0,101}"
+	place "p_{0,102}"
+	place "p_{0,103}"
+	place "p_{0,104}"
+	place "p_{0,105}"
+	place "p_{0,106}"
+	place "p_{0,107}"
+	place "p_{0,108}"
+	place "p_{0,109}"
+	place "p_{0,110}"
+	place "p_{0,111}"
+	place "p_{0,112}"
+	place "p_{0,113}"
+	place "p_{0,114}"
+	place "p_{0,115}"
+	place "p_{0,116}"
+	place "p_{0,117}"
+	place "p_{0,118}"
+	place "p_{0,119}"
+	place "p_{0,120}"
+	place "p_{0,121}"
+	place "p_{0,122}"
+	place "p_{0,123}"
+	place "p_{0,124}"
+	place "p_{0,125}"
+	place "p_{0,126}"
+	place "p_{0,127}"
+	place "p_{0,128}"
+	place "p_{0,129}"
+	place "p_{0,130}"
+	place "p_{0,131}"
+	place "p_{0,132}"
+	place "p_{0,133}"
+	place "p_{0,134}"
+	place "p_{0,135}"
+	place "p_{0,136}"
+	place "p_{0,137}"
+
+	trans "t0"
+	trans "t1"
+	trans "t2"
+	trans "t3"
+	trans "t4"
+	trans "t5"
+	trans "t6"
+	trans "t7"
+	trans "t8"
+	trans "t9"
+	trans "t10"
+	trans "t11"
+	trans "t12"
+	trans "t13"
+	trans "t14"
+	trans "t15"
+	trans "t16"
+	trans "t17"
+	trans "t18"
+	trans "t19"
+	trans "t20"
+	trans "t21"
+	trans "t22"
+	trans "t23"
+	trans "t24"
+	trans "t25"
+	trans "t26"
+	trans "t27"
+	trans "t28"
+	trans "t29"
+	trans "t30"
+	trans "t31"
+	trans "t32"
+	trans "t33"
+	trans "t34"
+	trans "t35"
+	trans "t36"
+	trans "t37"
+	trans "t38"
+	trans "t39"
+	trans "t40"
+	trans "t41"
+	trans "t42"
+	trans "t43"
+	trans "t44"
+	trans "t45"
+	trans "t46"
+	trans "t47"
+	trans "t48"
+	trans "t49"
+	trans "t50"
+	trans "t51"
+	trans "t52"
+	trans "t53"
+	trans "t54"
+	trans "t55"
+	trans "t56"
+	trans "t57"
+	trans "t58"
+	trans "t59"
+	trans "t60"
+	trans "t61"
+	trans "t62"
+	trans "t63"
+	trans "t64"
+	trans "t65"
+	trans "t66"
+	trans "t67"
+	trans "t68"
+	trans "t69"
+	trans "t70"
+	trans "t71"
+	trans "t72"
+	trans "t73"
+	trans "t74"
+	trans "t75"
+	trans "t76"
+	trans "t77"
+	trans "t78"
+	trans "t79"
+	trans "t80"
+	trans "t81"
+	trans "t82"
+	trans "t83"
+	trans "t84"
+	trans "t85"
+	trans "t86"
+	trans "t87"
+	trans "t88"
+	trans "t89"
+	trans "t90"
+	trans "t91"
+	trans "t92"
+	trans "t93"
+	trans "t94"
+	trans "t95"
+	trans "t96"
+	trans "t97"
+	trans "t98"
+	trans "t99"
+	trans "t100"
+	trans "t101"
+	trans "t102"
+	trans "t103"
+	trans "t104"
+	trans "t105"
+	trans "t106"
+	trans "t107"
+	trans "t108"
+	trans "t109"
+	trans "t110"
+	trans "t111"
+	trans "t112"
+	trans "t113"
+	trans "t114"
+	trans "t115"
+	trans "t116"
+	trans "t117"
+	trans "t118"
+	trans "t119"
+	trans "t120"
+	trans "t121"
+	trans "t122"
+	trans "t123"
+	trans "t124"
+	trans "t125"
+	trans "t126"
+	trans "t127"
+	trans "t128"
+	trans "t129"
+	trans "t130"
+	trans "t131"
+	trans "t132"
+	trans "t133"
+	trans "t134"
+	trans "t135"
+	trans "t136"
+	trans "t137"
+	trans "t138"
+	trans "t139"
+	trans "t140"
+	trans "t141"
+	trans "t142"
+	trans "t143"
+	trans "t144"
+	trans "t145"
+	trans "t146"
+	trans "t147"
+	trans "t148"
+	trans "t149"
+	trans "t150"
+	trans "t151"
+	trans "t152"
+	trans "t153"
+	trans "t154"
+	trans "t155"
+	trans "t156"
+	trans "t157"
+	trans "t158"
+	trans "t159"
+	trans "t160"
+	trans "t161"
+	trans "t162"
+	trans "t163"
+	trans "t164"
+	trans "t165"
+	trans "t166"
+	trans "t167"
+	trans "t168"
+	trans "t169"
+	trans "t170"
+	trans "t171"
+	trans "t172"
+	trans "t173"
+	trans "t174"
+	trans "t175"
+	trans "t176"
+	trans "t177"
+	trans "t178"
+	trans "t179"
+	trans "t180"
+	trans "t181"
+	trans "t182"
+	trans "t183"
+	trans "t184"
+	trans "t185"
+	trans "t186"
+	trans "t187"
+	trans "t188"
+	trans "t189"
+	trans "t190"
+	trans "t191"
+	trans "t192"
+	trans "t193"
+	trans "t194"
+	trans "t195"
+	trans "t196"
+	trans "t197"
+	trans "t198"
+	trans "t199"
+	trans "t200"
+	trans "t201"
+	trans "t202"
+	trans "t203"
+	trans "t204"
+	trans "t205"
+	trans "t206"
+	trans "t207"
+	trans "t208"
+	trans "t209"
+	trans "t210"
+	trans "t211"
+	trans "t212"
+	trans "t213"
+	trans "t214"
+	trans "t215"
+	trans "t216"
+	trans "t217"
+	trans "t218"
+	trans "t219"
+	trans "t220"
+	trans "t221"
+	trans "t222"
+	trans "t223"
+	trans "t224"
+	trans "t225"
+	trans "t226"
+	trans "t227"
+	trans "t228"
+	trans "t229"
+	trans "t230"
+	trans "t231"
+	trans "t232"
+	trans "t233"
+	trans "t234"
+	trans "t235"
+	trans "t236"
+	trans "t237"
+	trans "t238"
+	trans "t239"
+	trans "t240"
+	trans "t241"
+	trans "t242"
+	trans "t243"
+	trans "t244"
+	trans "t245"
+	trans "t246"
+	trans "t247"
+	trans "t248"
+	trans "t249"
+	trans "t250"
+	trans "t251"
+	trans "t252"
+	trans "t253"
+	trans "t254"
+	trans "t255"
+	trans "t256"
+	trans "t257"
+	trans "t258"
+	trans "t259"
+	trans "t260"
+	trans "t261"
+	trans "t262"
+	trans "t263"
+	trans "t264"
+	trans "t265"
+	trans "t266"
+	trans "t267"
+	trans "t268"
+	trans "t269"
+	trans "t270"
+	trans "t271"
+	trans "t272"
+	trans "t273"
+	trans "t274"
+	trans "t275"
+	trans "t276"
+	trans "t277"
+	trans "t278"
+	trans "t279"
+	trans "t280"
+	trans "t281"
+	trans "t282"
+	trans "t283"
+	trans "t284"
+	trans "t285"
+	trans "t286"
+	trans "t287"
+	trans "t288"
+	trans "t289"
+	trans "t290"
+	trans "t291"
+	trans "t292"
+	trans "t293"
+	trans "t294"
+	trans "t295"
+	trans "t296"
+	trans "t297"
+	trans "t298"
+	trans "t299"
+	trans "t300"
+	trans "t301"
+	trans "t302"
+	trans "t303"
+	trans "t304"
+	trans "t305"
+	trans "t306"
+	trans "t307"
+	trans "t308"
+	trans "t309"
+	trans "t310"
+	trans "t311"
+	trans "t312"
+	trans "t313"
+	trans "t314"
+	trans "t315"
+	trans "t316"
+	trans "t317"
+	trans "t318"
+	trans "t319"
+	trans "t320"
+	trans "t321"
+	trans "t322"
+	trans "t323"
+	trans "t324"
+	trans "t325"
+	trans "t326"
+	trans "t327"
+	trans "t328"
+	trans "t329"
+	trans "t330"
+	trans "t331"
+	trans "t332"
+	trans "t333"
+	trans "t334"
+	trans "t335"
+	trans "t336"
+	trans "t337"
+	trans "t338"
+	trans "t339"
+	trans "t340"
+	trans "t341"
+	trans "t342"
+	trans "t343"
+	trans "t344"
+	trans "t345"
+	trans "t346"
+	trans "t347"
+	trans "t348"
+	trans "t349"
+	trans "t350"
+	trans "t351"
+	trans "t352"
+	trans "t353"
+	trans "t354"
+	trans "t355"
+	trans "t356"
+	trans "t357"
+	trans "t358"
+	trans "t359"
+	trans "t360"
+	trans "t361"
+	trans "t362"
+	trans "t363"
+	trans "t364"
+	trans "t365"
+	trans "t366"
+	trans "t367"
+	trans "t368"
+	trans "t369"
+	trans "t370"
+	trans "t371"
+	trans "t372"
+	trans "t373"
+	trans "t374"
+	trans "t375"
+	trans "t376"
+	trans "t377"
+	trans "t378"
+	trans "t379"
+	trans "t380"
+	trans "t381"
+	trans "t382"
+	trans "t383"
+	trans "t384"
+	trans "t385"
+	trans "t386"
+	trans "t387"
+	trans "t388"
+	trans "t389"
+	trans "t390"
+	trans "t391"
+	trans "t392"
+	trans "t393"
+	trans "t394"
+	trans "t395"
+	trans "t396"
+	trans "t397"
+	trans "t398"
+	trans "t399"
+	trans "t400"
+	trans "t401"
+	trans "t402"
+	trans "t403"
+	trans "t404"
+	trans "t405"
+	trans "t406"
+	trans "t407"
+	trans "t408"
+	trans "t409"
+	trans "t410"
+	trans "t411"
+	trans "t412"
+	trans "t413"
+	trans "t414"
+	trans "t415"
+	trans "t416"
+	trans "t417"
+	trans "t418"
+	trans "t419"
+	trans "t420"
+	trans "t421"
+	trans "t422"
+	trans "t423"
+	trans "t424"
+	trans "t425"
+	trans "t426"
+	trans "t427"
+	trans "t428"
+	trans "t429"
+	trans "t430"
+	trans "t431"
+	trans "t432"
+	trans "t433"
+	trans "t434"
+	trans "t435"
+	trans "t436"
+	trans "t437"
+	trans "t438"
+	trans "t439"
+	trans "t440"
+	trans "t441"
+	trans "t442"
+	trans "t443"
+	trans "t444"
+	trans "t445"
+	trans "t446"
+	trans "t447"
+	trans "t448"
+	trans "t449"
+	trans "t450"
+	trans "t451"
+	trans "t452"
+	trans "t453"
+	trans "t454"
+	trans "t455"
+]
+
+incidence [
+	ribulose-5-phosphate t0 p_{0,0}
+	h2o ribulose-5-phosphate t1 p_{0,1} p_{0,2}
+	p_{0,0} p_{0,2} t2 p_{0,3} p_{0,4}
+	ribulose-5-phosphate p_{0,0} t3 p_{0,4} p_{0,5}
+	p_{0,0} p_{0,2} t4 p_{0,6} p_{0,7}
+	ribulose-5-phosphate p_{0,0} t5 p_{0,7} p_{0,8}
+	p_{0,0} p_{0,2} t6 p_{0,9}
+	ribulose-5-phosphate p_{0,0} t7 p_{0,10}
+	p_{0,2} t8 p_{0,11}
+	h2o p_{0,0} t9 p_{0,1} p_{0,11}
+	p_{0,0} t10 ribulose-5-phosphate
+	p_{0,3} p_{0,4} t11 p_{0,0} p_{0,2}
+	p_{0,3} p_{0,7} t12 p_{0,2} p_{0,12}
+	p_{0,2} p_{0,3} t13 p_{0,2} p_{0,3}
+	ribulose-5-phosphate p_{0,3} t14 p_{0,2} p_{0,5}
+	p_{0,4} p_{0,5} t15 ribulose-5-phosphate p_{0,0}
+	p_{0,4} p_{0,6} t16 p_{0,0} p_{0,13}
+	p_{0,4} p_{0,8} t17 fructose-6-phosphate p_{0,0}
+	p_{0,4} p_{0,11} t18 p_{0,0} p_{0,14}
+	p_{0,0} p_{0,4} t19 p_{0,0} p_{0,4}
+	p_{0,5} p_{0,7} t20 ribulose-5-phosphate p_{0,12}
+	p_{0,2} p_{0,5} t21 ribulose-5-phosphate p_{0,3}
+	ribulose-5-phosphate p_{0,5} t22 ribulose-5-phosphate p_{0,5}
+	p_{0,6} p_{0,7} t23 p_{0,12} p_{0,13}
+	p_{0,2} p_{0,6} t24 p_{0,3} p_{0,13}
+	ribulose-5-phosphate p_{0,6} t25 p_{0,5} p_{0,13}
+	p_{0,7} p_{0,8} t26 fructose-6-phosphate p_{0,12}
+	p_{0,7} p_{0,11} t27 p_{0,12} p_{0,14}
+	p_{0,0} p_{0,7} t28 p_{0,4} p_{0,12}
+	p_{0,2} p_{0,8} t29 fructose-6-phosphate p_{0,3}
+	ribulose-5-phosphate p_{0,8} t30 fructose-6-phosphate p_{0,5}
+	p_{0,2} p_{0,11} t31 p_{0,3} p_{0,14}
+	ribulose-5-phosphate p_{0,11} t32 p_{0,5} p_{0,14}
+	p_{0,3} p_{0,4} t33 p_{0,15} p_{0,16}
+	p_{0,3} p_{0,7} t34 p_{0,0} p_{0,16}
+	p_{0,2} p_{0,3} t35 p_{0,6} p_{0,16}
+	ribulose-5-phosphate p_{0,3} t36 p_{0,8} p_{0,16}
+	p_{0,4} p_{0,5} t37 p_{0,15} p_{0,17}
+	p_{0,4} p_{0,6} t38 p_{0,2} p_{0,15}
+	p_{0,4} p_{0,8} t39 ribulose-5-phosphate p_{0,15}
+	p_{0,4} p_{0,11} t40 p_{0,15} p_{0,18}
+	p_{0,0} p_{0,4} t41 p_{0,7} p_{0,15}
+	p_{0,5} p_{0,7} t42 p_{0,0} p_{0,17}
+	p_{0,2} p_{0,5} t43 p_{0,6} p_{0,17}
+	ribulose-5-phosphate p_{0,5} t44 p_{0,8} p_{0,17}
+	p_{0,6} p_{0,7} t45 p_{0,0} p_{0,2}
+	p_{0,2} p_{0,6} t46 p_{0,2} p_{0,6}
+	ribulose-5-phosphate p_{0,6} t47 p_{0,2} p_{0,8}
+	p_{0,7} p_{0,8} t48 ribulose-5-phosphate p_{0,0}
+	p_{0,7} p_{0,11} t49 p_{0,0} p_{0,18}
+	p_{0,0} p_{0,7} t50 p_{0,0} p_{0,7}
+	p_{0,2} p_{0,8} t51 ribulose-5-phosphate p_{0,6}
+	ribulose-5-phosphate p_{0,8} t52 ribulose-5-phosphate p_{0,8}
+	p_{0,2} p_{0,11} t53 p_{0,6} p_{0,18}
+	ribulose-5-phosphate p_{0,11} t54 p_{0,8} p_{0,18}
+	2.0 p_{0,3} t55 p_{0,19}
+	p_{0,3} p_{0,4} t56 p_{0,9}
+	p_{0,3} p_{0,7} t57 p_{0,20}
+	p_{0,2} p_{0,3} t58 p_{0,21}
+	ribulose-5-phosphate p_{0,3} t59 p_{0,22}
+	p_{0,3} p_{0,5} t60 p_{0,12}
+	p_{0,3} p_{0,6} t61 p_{0,11}
+	p_{0,3} p_{0,8} t62 p_{0,0}
+	p_{0,3} p_{0,11} t63 p_{0,23}
+	p_{0,0} p_{0,3} t64 p_{0,24}
+	p_{0,4} p_{0,5} t65 p_{0,10}
+	p_{0,4} p_{0,6} t66 p_{0,25}
+	p_{0,4} p_{0,8} t67 p_{0,26}
+	p_{0,4} p_{0,11} t68 p_{0,27}
+	p_{0,0} p_{0,4} t69 p_{0,28}
+	p_{0,5} p_{0,7} t70 p_{0,29}
+	p_{0,2} p_{0,5} t71 p_{0,22}
+	ribulose-5-phosphate p_{0,5} t72 p_{0,30}
+	p_{0,6} p_{0,7} t73 p_{0,31}
+	p_{0,2} p_{0,6} t74 p_{0,32}
+	ribulose-5-phosphate p_{0,6} t75 p_{0,33}
+	p_{0,7} p_{0,8} t76 p_{0,34}
+	p_{0,7} p_{0,11} t77 p_{0,35}
+	p_{0,0} p_{0,7} t78 p_{0,36}
+	p_{0,2} p_{0,8} t79 p_{0,37}
+	ribulose-5-phosphate p_{0,8} t80 p_{0,38}
+	p_{0,2} p_{0,11} t81 p_{0,39}
+	ribulose-5-phosphate p_{0,11} t82 p_{0,40}
+	p_{0,3} t83 p_{0,3}
+	p_{0,4} t84 p_{0,41}
+	p_{0,7} t85 p_{0,24}
+	h2o p_{0,4} t86 p_{0,1} p_{0,14}
+	h2o p_{0,5} t87 p_{0,1} p_{0,3}
+	h2o p_{0,7} t88 p_{0,1} p_{0,18}
+	h2o p_{0,8} t89 p_{0,1} p_{0,6}
+	h2o p_{0,9} t90 p_{0,1} p_{0,39}
+	h2o p_{0,10} t91 p_{0,1} p_{0,9}
+	h2o p_{0,10} t92 p_{0,1} p_{0,40}
+	p_{0,6} t93 p_{0,42}
+	p_{0,8} t94 p_{0,43}
+	p_{0,11} t95 p_{0,2}
+	p_{0,12} p_{0,13} t96 p_{0,6} p_{0,7}
+	p_{0,12} p_{0,14} t97 p_{0,7} p_{0,11}
+	p_{0,12} p_{0,16} t98 p_{0,7} p_{0,44}
+	p_{0,12} p_{0,18} t99 p_{0,7} p_{0,19}
+	fructose-6-phosphate p_{0,12} t100 p_{0,7} p_{0,8}
+	p_{0,7} p_{0,12} t101 p_{0,7} p_{0,12}
+	p_{0,2} p_{0,12} t102 p_{0,3} p_{0,7}
+	p_{0,4} p_{0,12} t103 p_{0,0} p_{0,7}
+	ribulose-5-phosphate p_{0,12} t104 p_{0,5} p_{0,7}
+	p_{0,13} p_{0,15} t105 p_{0,6} p_{0,45}
+	p_{0,13} p_{0,19} t106 p_{0,6} p_{0,18}
+	p_{0,13} p_{0,23} t107 p_{0,6} p_{0,46}
+	p_{0,13} p_{0,24} t108 p_{0,6} p_{0,47}
+	p_{0,13} p_{0,41} t109 p_{0,6} p_{0,48}
+	p_{0,6} p_{0,13} t110 p_{0,6} p_{0,13}
+	p_{0,8} p_{0,13} t111 fructose-6-phosphate p_{0,6}
+	p_{0,11} p_{0,13} t112 p_{0,6} p_{0,14}
+	p_{0,0} p_{0,13} t113 p_{0,4} p_{0,6}
+	p_{0,3} p_{0,13} t114 p_{0,2} p_{0,6}
+	p_{0,5} p_{0,13} t115 ribulose-5-phosphate p_{0,6}
+	p_{0,14} p_{0,15} t116 p_{0,11} p_{0,45}
+	p_{0,14} p_{0,19} t117 p_{0,11} p_{0,18}
+	p_{0,14} p_{0,23} t118 p_{0,11} p_{0,46}
+	p_{0,14} p_{0,24} t119 p_{0,11} p_{0,47}
+	p_{0,14} p_{0,41} t120 p_{0,11} p_{0,48}
+	p_{0,6} p_{0,14} t121 p_{0,11} p_{0,13}
+	p_{0,8} p_{0,14} t122 fructose-6-phosphate p_{0,11}
+	p_{0,11} p_{0,14} t123 p_{0,11} p_{0,14}
+	p_{0,0} p_{0,14} t124 p_{0,4} p_{0,11}
+	p_{0,3} p_{0,14} t125 p_{0,2} p_{0,11}
+	p_{0,5} p_{0,14} t126 ribulose-5-phosphate p_{0,11}
+	p_{0,15} p_{0,16} t127 p_{0,44} p_{0,45}
+	p_{0,15} p_{0,18} t128 p_{0,19} p_{0,45}
+	fructose-6-phosphate p_{0,15} t129 p_{0,8} p_{0,45}
+	p_{0,7} p_{0,15} t130 p_{0,12} p_{0,45}
+	p_{0,2} p_{0,15} t131 p_{0,3} p_{0,45}
+	p_{0,4} p_{0,15} t132 p_{0,0} p_{0,45}
+	ribulose-5-phosphate p_{0,15} t133 p_{0,5} p_{0,45}
+	p_{0,16} p_{0,19} t134 p_{0,18} p_{0,44}
+	p_{0,16} p_{0,23} t135 p_{0,44} p_{0,46}
+	p_{0,16} p_{0,24} t136 p_{0,44} p_{0,47}
+	p_{0,16} p_{0,41} t137 p_{0,44} p_{0,48}
+	p_{0,6} p_{0,16} t138 p_{0,13} p_{0,44}
+	p_{0,8} p_{0,16} t139 fructose-6-phosphate p_{0,44}
+	p_{0,11} p_{0,16} t140 p_{0,14} p_{0,44}
+	p_{0,0} p_{0,16} t141 p_{0,4} p_{0,44}
+	p_{0,3} p_{0,16} t142 p_{0,2} p_{0,44}
+	p_{0,5} p_{0,16} t143 ribulose-5-phosphate p_{0,44}
+	p_{0,18} p_{0,19} t144 p_{0,18} p_{0,19}
+	p_{0,18} p_{0,23} t145 p_{0,19} p_{0,46}
+	p_{0,18} p_{0,24} t146 p_{0,19} p_{0,47}
+	p_{0,18} p_{0,41} t147 p_{0,19} p_{0,48}
+	p_{0,6} p_{0,18} t148 p_{0,13} p_{0,19}
+	p_{0,8} p_{0,18} t149 fructose-6-phosphate p_{0,19}
+	p_{0,11} p_{0,18} t150 p_{0,14} p_{0,19}
+	p_{0,0} p_{0,18} t151 p_{0,4} p_{0,19}
+	p_{0,3} p_{0,18} t152 p_{0,2} p_{0,19}
+	p_{0,5} p_{0,18} t153 ribulose-5-phosphate p_{0,19}
+	fructose-6-phosphate p_{0,19} t154 p_{0,8} p_{0,18}
+	p_{0,7} p_{0,19} t155 p_{0,12} p_{0,18}
+	p_{0,2} p_{0,19} t156 p_{0,3} p_{0,18}
+	p_{0,4} p_{0,19} t157 p_{0,0} p_{0,18}
+	ribulose-5-phosphate p_{0,19} t158 p_{0,5} p_{0,18}
+	fructose-6-phosphate p_{0,23} t159 p_{0,8} p_{0,46}
+	p_{0,7} p_{0,23} t160 p_{0,12} p_{0,46}
+	p_{0,2} p_{0,23} t161 p_{0,3} p_{0,46}
+	p_{0,4} p_{0,23} t162 p_{0,0} p_{0,46}
+	ribulose-5-phosphate p_{0,23} t163 p_{0,5} p_{0,46}
+	fructose-6-phosphate p_{0,24} t164 p_{0,8} p_{0,47}
+	p_{0,7} p_{0,24} t165 p_{0,12} p_{0,47}
+	p_{0,2} p_{0,24} t166 p_{0,3} p_{0,47}
+	p_{0,4} p_{0,24} t167 p_{0,0} p_{0,47}
+	ribulose-5-phosphate p_{0,24} t168 p_{0,5} p_{0,47}
+	fructose-6-phosphate p_{0,41} t169 p_{0,8} p_{0,48}
+	p_{0,7} p_{0,41} t170 p_{0,12} p_{0,48}
+	p_{0,2} p_{0,41} t171 p_{0,3} p_{0,48}
+	p_{0,4} p_{0,41} t172 p_{0,0} p_{0,48}
+	ribulose-5-phosphate p_{0,41} t173 p_{0,5} p_{0,48}
+	fructose-6-phosphate p_{0,6} t174 p_{0,8} p_{0,13}
+	fructose-6-phosphate p_{0,8} t175 fructose-6-phosphate p_{0,8}
+	fructose-6-phosphate p_{0,11} t176 p_{0,8} p_{0,14}
+	fructose-6-phosphate p_{0,0} t177 p_{0,4} p_{0,8}
+	fructose-6-phosphate p_{0,3} t178 p_{0,2} p_{0,8}
+	fructose-6-phosphate p_{0,5} t179 ribulose-5-phosphate p_{0,8}
+	p_{0,12} p_{0,13} t180 fructose-6-phosphate p_{0,19}
+	p_{0,12} p_{0,14} t181 fructose-6-phosphate p_{0,49}
+	p_{0,12} p_{0,16} t182 fructose-6-phosphate p_{0,3}
+	p_{0,12} p_{0,17} t183 fructose-6-phosphate p_{0,5}
+	p_{0,12} p_{0,18} t184 fructose-6-phosphate p_{0,11}
+	p_{0,12} p_{0,42} t185 fructose-6-phosphate p_{0,44}
+	fructose-6-phosphate p_{0,12} t186 fructose-6-phosphate p_{0,12}
+	p_{0,7} p_{0,12} t187 fructose-6-phosphate p_{0,0}
+	p_{0,2} p_{0,12} t188 fructose-6-phosphate p_{0,6}
+	p_{0,4} p_{0,12} t189 fructose-6-phosphate p_{0,15}
+	ribulose-5-phosphate p_{0,12} t190 fructose-6-phosphate p_{0,8}
+	p_{0,13} p_{0,15} t191 p_{0,4} p_{0,19}
+	p_{0,13} p_{0,19} t192 p_{0,13} p_{0,19}
+	p_{0,13} p_{0,23} t193 p_{0,19} p_{0,50}
+	p_{0,13} p_{0,24} t194 p_{0,19} p_{0,45}
+	p_{0,13} p_{0,41} t195 p_{0,19} p_{0,47}
+	p_{0,6} p_{0,13} t196 p_{0,2} p_{0,19}
+	p_{0,8} p_{0,13} t197 ribulose-5-phosphate p_{0,19}
+	p_{0,11} p_{0,13} t198 p_{0,18} p_{0,19}
+	p_{0,0} p_{0,13} t199 p_{0,7} p_{0,19}
+	p_{0,3} p_{0,13} t200 p_{0,16} p_{0,19}
+	p_{0,5} p_{0,13} t201 p_{0,17} p_{0,19}
+	p_{0,14} p_{0,15} t202 p_{0,4} p_{0,49}
+	p_{0,14} p_{0,19} t203 p_{0,13} p_{0,49}
+	p_{0,14} p_{0,23} t204 p_{0,49} p_{0,50}
+	p_{0,14} p_{0,24} t205 p_{0,45} p_{0,49}
+	p_{0,14} p_{0,41} t206 p_{0,47} p_{0,49}
+	p_{0,6} p_{0,14} t207 p_{0,2} p_{0,49}
+	p_{0,8} p_{0,14} t208 ribulose-5-phosphate p_{0,49}
+	p_{0,11} p_{0,14} t209 p_{0,18} p_{0,49}
+	p_{0,0} p_{0,14} t210 p_{0,7} p_{0,49}
+	p_{0,3} p_{0,14} t211 p_{0,16} p_{0,49}
+	p_{0,5} p_{0,14} t212 p_{0,17} p_{0,49}
+	p_{0,15} p_{0,16} t213 p_{0,3} p_{0,4}
+	p_{0,15} p_{0,17} t214 p_{0,4} p_{0,5}
+	p_{0,15} p_{0,18} t215 p_{0,4} p_{0,11}
+	p_{0,15} p_{0,42} t216 p_{0,4} p_{0,44}
+	fructose-6-phosphate p_{0,15} t217 p_{0,4} p_{0,12}
+	p_{0,7} p_{0,15} t218 p_{0,0} p_{0,4}
+	p_{0,2} p_{0,15} t219 p_{0,4} p_{0,6}
+	p_{0,4} p_{0,15} t220 p_{0,4} p_{0,15}
+	ribulose-5-phosphate p_{0,15} t221 p_{0,4} p_{0,8}
+	p_{0,16} p_{0,19} t222 p_{0,3} p_{0,13}
+	p_{0,16} p_{0,23} t223 p_{0,3} p_{0,50}
+	p_{0,16} p_{0,24} t224 p_{0,3} p_{0,45}
+	p_{0,16} p_{0,41} t225 p_{0,3} p_{0,47}
+	p_{0,6} p_{0,16} t226 p_{0,2} p_{0,3}
+	p_{0,8} p_{0,16} t227 ribulose-5-phosphate p_{0,3}
+	p_{0,11} p_{0,16} t228 p_{0,3} p_{0,18}
+	p_{0,0} p_{0,16} t229 p_{0,3} p_{0,7}
+	p_{0,3} p_{0,16} t230 p_{0,3} p_{0,16}
+	p_{0,5} p_{0,16} t231 p_{0,3} p_{0,17}
+	p_{0,17} p_{0,19} t232 p_{0,5} p_{0,13}
+	p_{0,17} p_{0,23} t233 p_{0,5} p_{0,50}
+	p_{0,17} p_{0,24} t234 p_{0,5} p_{0,45}
+	p_{0,17} p_{0,41} t235 p_{0,5} p_{0,47}
+	p_{0,6} p_{0,17} t236 p_{0,2} p_{0,5}
+	p_{0,8} p_{0,17} t237 ribulose-5-phosphate p_{0,5}
+	p_{0,11} p_{0,17} t238 p_{0,5} p_{0,18}
+	p_{0,0} p_{0,17} t239 p_{0,5} p_{0,7}
+	p_{0,3} p_{0,17} t240 p_{0,5} p_{0,16}
+	p_{0,5} p_{0,17} t241 p_{0,5} p_{0,17}
+	p_{0,18} p_{0,19} t242 p_{0,11} p_{0,13}
+	p_{0,18} p_{0,23} t243 p_{0,11} p_{0,50}
+	p_{0,18} p_{0,24} t244 p_{0,11} p_{0,45}
+	p_{0,18} p_{0,41} t245 p_{0,11} p_{0,47}
+	p_{0,6} p_{0,18} t246 p_{0,2} p_{0,11}
+	p_{0,8} p_{0,18} t247 ribulose-5-phosphate p_{0,11}
+	p_{0,11} p_{0,18} t248 p_{0,11} p_{0,18}
+	p_{0,0} p_{0,18} t249 p_{0,7} p_{0,11}
+	p_{0,3} p_{0,18} t250 p_{0,11} p_{0,16}
+	p_{0,5} p_{0,18} t251 p_{0,11} p_{0,17}
+	p_{0,19} p_{0,42} t252 p_{0,13} p_{0,44}
+	fructose-6-phosphate p_{0,19} t253 p_{0,12} p_{0,13}
+	p_{0,7} p_{0,19} t254 p_{0,0} p_{0,13}
+	p_{0,2} p_{0,19} t255 p_{0,6} p_{0,13}
+	p_{0,4} p_{0,19} t256 p_{0,13} p_{0,15}
+	ribulose-5-phosphate p_{0,19} t257 p_{0,8} p_{0,13}
+	p_{0,23} p_{0,42} t258 p_{0,44} p_{0,50}
+	fructose-6-phosphate p_{0,23} t259 p_{0,12} p_{0,50}
+	p_{0,7} p_{0,23} t260 p_{0,0} p_{0,50}
+	p_{0,2} p_{0,23} t261 p_{0,6} p_{0,50}
+	p_{0,4} p_{0,23} t262 p_{0,15} p_{0,50}
+	ribulose-5-phosphate p_{0,23} t263 p_{0,8} p_{0,50}
+	p_{0,24} p_{0,42} t264 p_{0,44} p_{0,45}
+	fructose-6-phosphate p_{0,24} t265 p_{0,12} p_{0,45}
+	p_{0,7} p_{0,24} t266 p_{0,0} p_{0,45}
+	p_{0,2} p_{0,24} t267 p_{0,6} p_{0,45}
+	p_{0,4} p_{0,24} t268 p_{0,15} p_{0,45}
+	ribulose-5-phosphate p_{0,24} t269 p_{0,8} p_{0,45}
+	p_{0,41} p_{0,42} t270 p_{0,44} p_{0,47}
+	fructose-6-phosphate p_{0,41} t271 p_{0,12} p_{0,47}
+	p_{0,7} p_{0,41} t272 p_{0,0} p_{0,47}
+	p_{0,2} p_{0,41} t273 p_{0,6} p_{0,47}
+	p_{0,4} p_{0,41} t274 p_{0,15} p_{0,47}
+	ribulose-5-phosphate p_{0,41} t275 p_{0,8} p_{0,47}
+	p_{0,6} p_{0,42} t276 p_{0,2} p_{0,44}
+	p_{0,8} p_{0,42} t277 ribulose-5-phosphate p_{0,44}
+	p_{0,11} p_{0,42} t278 p_{0,18} p_{0,44}
+	p_{0,0} p_{0,42} t279 p_{0,7} p_{0,44}
+	p_{0,3} p_{0,42} t280 p_{0,16} p_{0,44}
+	p_{0,5} p_{0,42} t281 p_{0,17} p_{0,44}
+	fructose-6-phosphate p_{0,6} t282 p_{0,2} p_{0,12}
+	fructose-6-phosphate p_{0,8} t283 ribulose-5-phosphate p_{0,12}
+	fructose-6-phosphate p_{0,11} t284 p_{0,12} p_{0,18}
+	fructose-6-phosphate p_{0,0} t285 p_{0,7} p_{0,12}
+	fructose-6-phosphate p_{0,3} t286 p_{0,12} p_{0,16}
+	fructose-6-phosphate p_{0,5} t287 p_{0,12} p_{0,17}
+	p_{0,12} p_{0,13} t288 p_{0,31}
+	p_{0,12} p_{0,14} t289 p_{0,35}
+	p_{0,12} p_{0,16} t290 p_{0,51}
+	p_{0,12} p_{0,17} t291 p_{0,52}
+	p_{0,12} p_{0,18} t292 p_{0,53}
+	p_{0,12} p_{0,42} t293 p_{0,7}
+	p_{0,12} p_{0,43} t294 p_{0,54}
+	fructose-6-phosphate p_{0,12} t295 p_{0,34}
+	p_{0,7} p_{0,12} t296 p_{0,55}
+	p_{0,2} p_{0,12} t297 p_{0,20}
+	p_{0,3} p_{0,12} t298 p_{0,15}
+	p_{0,4} p_{0,12} t299 p_{0,36}
+	ribulose-5-phosphate p_{0,12} t300 p_{0,29}
+	p_{0,13} p_{0,15} t301 p_{0,56}
+	p_{0,13} p_{0,19} t302 p_{0,57}
+	p_{0,13} p_{0,23} t303 p_{0,58}
+	p_{0,13} p_{0,24} t304 p_{0,59}
+	p_{0,13} p_{0,41} t305 p_{0,60}
+	p_{0,6} p_{0,13} t306 p_{0,61}
+	p_{0,8} p_{0,13} t307 p_{0,62}
+	p_{0,11} p_{0,13} t308 p_{0,63}
+	p_{0,0} p_{0,13} t309 p_{0,25}
+	p_{0,3} p_{0,13} t310 p_{0,32}
+	p_{0,5} p_{0,13} t311 p_{0,33}
+	p_{0,14} p_{0,15} t312 p_{0,64}
+	p_{0,14} p_{0,19} t313 p_{0,65}
+	p_{0,14} p_{0,23} t314 p_{0,66}
+	p_{0,14} p_{0,24} t315 p_{0,67}
+	p_{0,14} p_{0,41} t316 p_{0,68}
+	p_{0,6} p_{0,14} t317 p_{0,63}
+	p_{0,8} p_{0,14} t318 p_{0,69}
+	p_{0,11} p_{0,14} t319 p_{0,70}
+	p_{0,0} p_{0,14} t320 p_{0,27}
+	p_{0,3} p_{0,14} t321 p_{0,39}
+	p_{0,5} p_{0,14} t322 p_{0,40}
+	p_{0,15} p_{0,16} t323 p_{0,71}
+	p_{0,15} p_{0,17} t324 p_{0,72}
+	p_{0,15} p_{0,18} t325 p_{0,73}
+	p_{0,15} p_{0,42} t326 p_{0,45}
+	p_{0,15} p_{0,43} t327 p_{0,74}
+	fructose-6-phosphate p_{0,15} t328 p_{0,75}
+	p_{0,7} p_{0,15} t329 p_{0,76}
+	p_{0,2} p_{0,15} t330 p_{0,77}
+	p_{0,3} p_{0,15} t331 p_{0,41}
+	p_{0,4} p_{0,15} t332 p_{0,78}
+	ribulose-5-phosphate p_{0,15} t333 p_{0,79}
+	p_{0,16} p_{0,19} t334 p_{0,80}
+	p_{0,16} p_{0,23} t335 p_{0,81}
+	p_{0,16} p_{0,24} t336 p_{0,82}
+	p_{0,16} p_{0,41} t337 p_{0,83}
+	p_{0,6} p_{0,16} t338 p_{0,84}
+	p_{0,8} p_{0,16} t339 p_{0,85}
+	p_{0,11} p_{0,16} t340 p_{0,86}
+	p_{0,0} p_{0,16} t341 p_{0,87}
+	p_{0,3} p_{0,16} t342 p_{0,88}
+	p_{0,5} p_{0,16} t343 p_{0,89}
+	p_{0,17} p_{0,19} t344 p_{0,90}
+	p_{0,17} p_{0,23} t345 p_{0,91}
+	p_{0,17} p_{0,24} t346 p_{0,92}
+	p_{0,17} p_{0,41} t347 p_{0,93}
+	p_{0,6} p_{0,17} t348 p_{0,94}
+	p_{0,8} p_{0,17} t349 p_{0,95}
+	p_{0,11} p_{0,17} t350 p_{0,96}
+	p_{0,0} p_{0,17} t351 p_{0,97}
+	p_{0,3} p_{0,17} t352 p_{0,98}
+	p_{0,5} p_{0,17} t353 p_{0,99}
+	p_{0,18} p_{0,19} t354 p_{0,100}
+	p_{0,18} p_{0,23} t355 p_{0,101}
+	p_{0,18} p_{0,24} t356 p_{0,102}
+	p_{0,18} p_{0,41} t357 p_{0,103}
+	p_{0,6} p_{0,18} t358 p_{0,57}
+	p_{0,8} p_{0,18} t359 p_{0,104}
+	p_{0,11} p_{0,18} t360 p_{0,65}
+	p_{0,0} p_{0,18} t361 p_{0,105}
+	p_{0,3} p_{0,18} t362 p_{0,106}
+	p_{0,5} p_{0,18} t363 p_{0,107}
+	p_{0,19} p_{0,42} t364 p_{0,18}
+	p_{0,19} p_{0,43} t365 p_{0,108}
+	fructose-6-phosphate p_{0,19} t366 p_{0,104}
+	p_{0,7} p_{0,19} t367 p_{0,53}
+	p_{0,2} p_{0,19} t368 p_{0,106}
+	p_{0,3} p_{0,19} t369 p_{0,49}
+	p_{0,4} p_{0,19} t370 p_{0,105}
+	ribulose-5-phosphate p_{0,19} t371 p_{0,107}
+	p_{0,23} p_{0,42} t372 p_{0,46}
+	p_{0,23} p_{0,43} t373 p_{0,109}
+	fructose-6-phosphate p_{0,23} t374 p_{0,110}
+	p_{0,7} p_{0,23} t375 p_{0,111}
+	p_{0,2} p_{0,23} t376 p_{0,112}
+	p_{0,3} p_{0,23} t377 p_{0,113}
+	p_{0,4} p_{0,23} t378 p_{0,114}
+	ribulose-5-phosphate p_{0,23} t379 p_{0,115}
+	p_{0,24} p_{0,42} t380 p_{0,47}
+	p_{0,24} p_{0,43} t381 p_{0,116}
+	fructose-6-phosphate p_{0,24} t382 p_{0,117}
+	p_{0,7} p_{0,24} t383 p_{0,118}
+	p_{0,2} p_{0,24} t384 p_{0,119}
+	p_{0,3} p_{0,24} t385 p_{0,120}
+	p_{0,4} p_{0,24} t386 p_{0,121}
+	ribulose-5-phosphate p_{0,24} t387 p_{0,122}
+	p_{0,41} p_{0,42} t388 p_{0,48}
+	p_{0,41} p_{0,43} t389 p_{0,123}
+	fructose-6-phosphate p_{0,41} t390 p_{0,124}
+	p_{0,7} p_{0,41} t391 p_{0,125}
+	p_{0,2} p_{0,41} t392 p_{0,126}
+	p_{0,3} p_{0,41} t393 p_{0,127}
+	p_{0,4} p_{0,41} t394 p_{0,128}
+	ribulose-5-phosphate p_{0,41} t395 p_{0,129}
+	p_{0,6} p_{0,42} t396 p_{0,13}
+	p_{0,8} p_{0,42} t397 fructose-6-phosphate
+	p_{0,11} p_{0,42} t398 p_{0,14}
+	p_{0,0} p_{0,42} t399 p_{0,4}
+	p_{0,3} p_{0,42} t400 p_{0,2}
+	p_{0,5} p_{0,42} t401 ribulose-5-phosphate
+	p_{0,6} p_{0,43} t402 p_{0,130}
+	p_{0,8} p_{0,43} t403 p_{0,131}
+	p_{0,11} p_{0,43} t404 p_{0,132}
+	p_{0,0} p_{0,43} t405 p_{0,133}
+	p_{0,3} p_{0,43} t406 p_{0,134}
+	p_{0,5} p_{0,43} t407 p_{0,135}
+	fructose-6-phosphate p_{0,6} t408 p_{0,62}
+	fructose-6-phosphate p_{0,8} t409 p_{0,136}
+	fructose-6-phosphate p_{0,11} t410 p_{0,69}
+	fructose-6-phosphate p_{0,0} t411 p_{0,26}
+	fructose-6-phosphate p_{0,3} t412 p_{0,37}
+	fructose-6-phosphate p_{0,5} t413 p_{0,38}
+	p_{0,13} t414 p_{0,49}
+	p_{0,14} t415 p_{0,137}
+	p_{0,16} t416 p_{0,19}
+	p_{0,17} t417 p_{0,12}
+	p_{0,18} t418 p_{0,23}
+	p_{0,42} t419 p_{0,6}
+	p_{0,43} t420 p_{0,8}
+	fructose-6-phosphate t421 p_{0,15}
+	h2o p_{0,12} t422 p_{0,1} p_{0,19}
+	h2o p_{0,15} t423 p_{0,1} p_{0,49}
+	h2o p_{0,17} t424 p_{0,1} p_{0,16}
+	h2o p_{0,20} t425 p_{0,1} p_{0,106}
+	h2o p_{0,22} t426 p_{0,1} p_{0,21}
+	h2o p_{0,24} t427 p_{0,1} p_{0,23}
+	h2o p_{0,25} t428 p_{0,1} p_{0,63}
+	h2o p_{0,26} t429 p_{0,1} p_{0,25}
+	h2o p_{0,26} t430 p_{0,1} p_{0,69}
+	h2o p_{0,27} t431 p_{0,1} p_{0,70}
+	h2o p_{0,28} t432 p_{0,1} p_{0,27}
+	h2o p_{0,29} t433 p_{0,1} p_{0,107}
+	h2o p_{0,29} t434 p_{0,1} p_{0,20}
+	h2o p_{0,30} t435 p_{0,1} p_{0,22}
+	h2o p_{0,31} t436 p_{0,1} p_{0,57}
+	h2o p_{0,33} t437 p_{0,1} p_{0,32}
+	h2o p_{0,34} t438 p_{0,1} p_{0,31}
+	h2o p_{0,34} t439 p_{0,1} p_{0,104}
+	h2o p_{0,35} t440 p_{0,1} p_{0,65}
+	h2o p_{0,36} t441 p_{0,1} p_{0,35}
+	h2o p_{0,36} t442 p_{0,1} p_{0,105}
+	h2o p_{0,37} t443 p_{0,1} p_{0,32}
+	h2o p_{0,38} t444 p_{0,1} p_{0,37}
+	h2o p_{0,38} t445 p_{0,1} p_{0,33}
+	h2o p_{0,40} t446 p_{0,1} p_{0,39}
+	h2o p_{0,41} t447 p_{0,1} p_{0,137}
+	h2o p_{0,43} t448 p_{0,1} p_{0,42}
+	h2o fructose-6-phosphate t449 p_{0,1} p_{0,13}
+	p_{0,12} t450 p_{0,17}
+	p_{0,15} t451 fructose-6-phosphate
+	p_{0,19} t452 p_{0,16}
+	p_{0,23} t453 p_{0,18}
+	p_{0,24} t454 p_{0,7}
+	p_{0,41} t455 p_{0,4}
+]

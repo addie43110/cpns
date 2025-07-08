@@ -1,0 +1,157 @@
+name "ecoli-small"
+
+nodes [
+	place "graph_14"
+	place "graph_13"
+	place "graph_25"
+	place "graph_22"
+	place "graph_40"
+	place "graph_23"
+	place "graph_24"
+	place "graph_12"
+	place "graph_15"
+	place "graph_41"
+	place "graph_0"
+	place "graph_7"
+	place "graph_9"
+	place "graph_8"
+	place "graph_6"
+	place "graph_1"
+	place "graph_37"
+	place "graph_30"
+	place "graph_39"
+	place "graph_38"
+	place "graph_31"
+	place "graph_36"
+	place "graph_43"
+	place "graph_44"
+	place "graph_10"
+	place "graph_17"
+	place "graph_28"
+	place "graph_21"
+	place "graph_26"
+	place "graph_19"
+	place "graph_45"
+	place "graph_42"
+	place "graph_27"
+	place "graph_18"
+	place "graph_20"
+	place "graph_16"
+	place "graph_29"
+	place "graph_11"
+	place "graph_4"
+	place "graph_3"
+	place "graph_2"
+	place "graph_5"
+	place "graph_33"
+	place "graph_34"
+	place "graph_35"
+	place "graph_32"
+	place "p_{0,0}"
+
+	trans "t0"
+	trans "t1"
+	trans "t2"
+	trans "t3"
+	trans "t4"
+	trans "t5"
+	trans "t6"
+	trans "t7"
+	trans "t8"
+	trans "t9"
+	trans "t10"
+	trans "t11"
+	trans "t12"
+	trans "t13"
+	trans "t14"
+	trans "t15"
+	trans "t16"
+	trans "t17"
+	trans "t18"
+	trans "t19"
+	trans "t20"
+	trans "t21"
+	trans "t22"
+	trans "t23"
+	trans "t24"
+	trans "t25"
+	trans "t26"
+	trans "t27"
+	trans "t28"
+	trans "t29"
+	trans "t30"
+	trans "t31"
+	trans "t32"
+	trans "t33"
+	trans "t34"
+	trans "t35"
+	trans "t36"
+	trans "t37"
+	trans "t38"
+	trans "t39"
+	trans "t40"
+	trans "t41"
+	trans "t42"
+	trans "t43"
+	trans "t44"
+	trans "t45"
+	trans "t46"
+	trans "t47"
+	trans "t48"
+	trans "t49"
+	trans "t50"
+]
+
+incidence [
+	graph_0 graph_1 t0 graph_3 graph_2
+	graph_2 t1 graph_6 graph_32
+	graph_3 graph_2 t2 graph_0 graph_1
+	graph_4 t3 graph_7
+	graph_6 graph_5 t4 graph_41
+	graph_7 t5 graph_4
+	graph_6 graph_5 t6 graph_8
+	graph_8 t7 graph_6 graph_5
+	graph_9 graph_4 t8 graph_12 graph_11
+	graph_10 t9 graph_36
+	graph_12 graph_11 t10 graph_9 graph_4
+	graph_14 graph_13 t11 graph_17 graph_19 graph_18
+	graph_15 graph_11 t12 graph_9 graph_38
+	graph_6 graph_16 t13 graph_7
+	graph_17 graph_19 graph_18 t14 graph_14 graph_13
+	graph_7 t15 graph_6 graph_16
+	graph_21 graph_20 t16 graph_15 graph_29
+	graph_22 graph_23 t17 graph_8
+	graph_24 graph_19 t18 graph_44 p_{0,0}
+	graph_12 graph_17 graph_19 t19 graph_13 graph_21 graph_26
+	graph_8 t20 graph_22 graph_23
+	graph_25 graph_22 t21 graph_31 graph_32
+	graph_13 graph_21 graph_26 t22 graph_12 graph_17 graph_19
+	graph_28 graph_27 t23 graph_34 graph_35
+	graph_13 graph_30 graph_29 t24 graph_17 graph_19 graph_20
+	graph_26 t25 graph_33
+	graph_31 graph_32 t26 graph_25 graph_22
+	graph_26 graph_33 t27 graph_37
+	graph_17 graph_19 graph_20 t28 graph_13 graph_30 graph_29
+	graph_34 graph_35 t29 graph_28 graph_27
+	graph_33 t30 graph_26
+	graph_9 graph_6 graph_18 t31 graph_39 graph_21 2.0 graph_19 graph_16
+	graph_30 graph_17 graph_19 t32 graph_13 graph_40
+	graph_18 graph_29 t33 graph_24 graph_20
+	graph_15 graph_29 t34 graph_21 graph_20
+	graph_36 t35 graph_10
+	graph_37 t36 graph_26 graph_33
+	graph_17 graph_19 graph_35 t37 graph_13 graph_4
+	graph_9 graph_38 t38 graph_15 graph_11
+	graph_9 graph_10 t39 graph_37 graph_19 graph_11
+	graph_39 graph_21 2.0 graph_19 graph_16 t40 graph_9 graph_6 graph_18
+	graph_13 graph_40 t41 graph_30 graph_17 graph_19
+	graph_13 graph_4 t42 graph_17 graph_19 graph_35
+	graph_1 graph_17 graph_19 t43 graph_13 graph_2
+	graph_13 graph_2 t44 graph_1 graph_17 graph_19
+	graph_41 t45 graph_6 graph_5
+	graph_8 graph_42 t46 graph_43 graph_44 graph_28
+	graph_6 graph_32 t47 graph_2
+	graph_43 graph_44 graph_28 t48 graph_8 graph_42
+	graph_21 graph_45 graph_11 t49 graph_22 graph_9 graph_29
+	graph_22 graph_9 graph_29 t50 graph_21 graph_45 graph_11
+]

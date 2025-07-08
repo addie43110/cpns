@@ -1,0 +1,247 @@
+name "ppp-repeat-3"
+
+nodes [
+	place "h2o"
+	place "ribulose-5-phosphate"
+	place "p_{0,0}"
+	place "p_{0,1}"
+	place "p_{0,2}"
+	place "p_{0,3}"
+	place "p_{0,4}"
+	place "p_{0,5}"
+	place "p_{0,6}"
+	place "p_{0,7}"
+	place "p_{0,8}"
+	place "p_{0,9}"
+	place "p_{0,10}"
+	place "p_{0,11}"
+	place "p_{0,12}"
+	place "p_{0,13}"
+	place "fructose-6-phosphate"
+	place "p_{0,14}"
+	place "p_{0,15}"
+	place "p_{0,16}"
+	place "p_{0,17}"
+	place "p_{0,18}"
+	place "p_{0,19}"
+	place "p_{0,20}"
+	place "p_{0,21}"
+	place "p_{0,22}"
+	place "p_{0,23}"
+	place "p_{0,24}"
+	place "p_{0,25}"
+	place "p_{0,26}"
+	place "p_{0,27}"
+	place "p_{0,28}"
+	place "p_{0,29}"
+	place "p_{0,30}"
+	place "p_{0,31}"
+	place "p_{0,32}"
+	place "p_{0,33}"
+	place "p_{0,34}"
+	place "p_{0,35}"
+	place "p_{0,36}"
+	place "p_{0,37}"
+	place "p_{0,38}"
+	place "p_{0,39}"
+	place "p_{0,40}"
+	place "p_{0,41}"
+	place "p_{0,42}"
+	place "p_{0,43}"
+
+	trans "t0"
+	trans "t1"
+	trans "t2"
+	trans "t3"
+	trans "t4"
+	trans "t5"
+	trans "t6"
+	trans "t7"
+	trans "t8"
+	trans "t9"
+	trans "t10"
+	trans "t11"
+	trans "t12"
+	trans "t13"
+	trans "t14"
+	trans "t15"
+	trans "t16"
+	trans "t17"
+	trans "t18"
+	trans "t19"
+	trans "t20"
+	trans "t21"
+	trans "t22"
+	trans "t23"
+	trans "t24"
+	trans "t25"
+	trans "t26"
+	trans "t27"
+	trans "t28"
+	trans "t29"
+	trans "t30"
+	trans "t31"
+	trans "t32"
+	trans "t33"
+	trans "t34"
+	trans "t35"
+	trans "t36"
+	trans "t37"
+	trans "t38"
+	trans "t39"
+	trans "t40"
+	trans "t41"
+	trans "t42"
+	trans "t43"
+	trans "t44"
+	trans "t45"
+	trans "t46"
+	trans "t47"
+	trans "t48"
+	trans "t49"
+	trans "t50"
+	trans "t51"
+	trans "t52"
+	trans "t53"
+	trans "t54"
+	trans "t55"
+	trans "t56"
+	trans "t57"
+	trans "t58"
+	trans "t59"
+	trans "t60"
+	trans "t61"
+	trans "t62"
+	trans "t63"
+	trans "t64"
+	trans "t65"
+	trans "t66"
+	trans "t67"
+	trans "t68"
+	trans "t69"
+	trans "t70"
+	trans "t71"
+	trans "t72"
+	trans "t73"
+	trans "t74"
+	trans "t75"
+	trans "t76"
+	trans "t77"
+	trans "t78"
+	trans "t79"
+	trans "t80"
+	trans "t81"
+	trans "t82"
+	trans "t83"
+	trans "t84"
+	trans "t85"
+	trans "t86"
+	trans "t87"
+	trans "t88"
+	trans "t89"
+	trans "t90"
+	trans "t91"
+	trans "t92"
+	trans "t93"
+	trans "t94"
+	trans "t95"
+]
+
+incidence [
+	ribulose-5-phosphate t0 p_{0,0}
+	h2o ribulose-5-phosphate t1 p_{0,1} p_{0,2}
+	p_{0,0} p_{0,2} t2 p_{0,3} p_{0,4}
+	ribulose-5-phosphate p_{0,0} t3 p_{0,4} p_{0,5}
+	p_{0,0} p_{0,2} t4 p_{0,6} p_{0,7}
+	ribulose-5-phosphate p_{0,0} t5 p_{0,7} p_{0,8}
+	p_{0,0} p_{0,2} t6 p_{0,9}
+	ribulose-5-phosphate p_{0,0} t7 p_{0,10}
+	p_{0,2} t8 p_{0,11}
+	h2o p_{0,0} t9 p_{0,1} p_{0,11}
+	p_{0,0} t10 ribulose-5-phosphate
+	p_{0,3} p_{0,4} t11 p_{0,0} p_{0,2}
+	p_{0,3} p_{0,7} t12 p_{0,2} p_{0,12}
+	p_{0,2} p_{0,3} t13 p_{0,2} p_{0,3}
+	ribulose-5-phosphate p_{0,3} t14 p_{0,2} p_{0,5}
+	p_{0,4} p_{0,5} t15 ribulose-5-phosphate p_{0,0}
+	p_{0,4} p_{0,6} t16 p_{0,0} p_{0,13}
+	p_{0,4} p_{0,8} t17 fructose-6-phosphate p_{0,0}
+	p_{0,4} p_{0,11} t18 p_{0,0} p_{0,14}
+	p_{0,0} p_{0,4} t19 p_{0,0} p_{0,4}
+	p_{0,5} p_{0,7} t20 ribulose-5-phosphate p_{0,12}
+	p_{0,2} p_{0,5} t21 ribulose-5-phosphate p_{0,3}
+	ribulose-5-phosphate p_{0,5} t22 ribulose-5-phosphate p_{0,5}
+	p_{0,6} p_{0,7} t23 p_{0,12} p_{0,13}
+	p_{0,2} p_{0,6} t24 p_{0,3} p_{0,13}
+	ribulose-5-phosphate p_{0,6} t25 p_{0,5} p_{0,13}
+	p_{0,7} p_{0,8} t26 fructose-6-phosphate p_{0,12}
+	p_{0,7} p_{0,11} t27 p_{0,12} p_{0,14}
+	p_{0,0} p_{0,7} t28 p_{0,4} p_{0,12}
+	p_{0,2} p_{0,8} t29 fructose-6-phosphate p_{0,3}
+	ribulose-5-phosphate p_{0,8} t30 fructose-6-phosphate p_{0,5}
+	p_{0,2} p_{0,11} t31 p_{0,3} p_{0,14}
+	ribulose-5-phosphate p_{0,11} t32 p_{0,5} p_{0,14}
+	p_{0,3} p_{0,4} t33 p_{0,15} p_{0,16}
+	p_{0,3} p_{0,7} t34 p_{0,0} p_{0,16}
+	p_{0,2} p_{0,3} t35 p_{0,6} p_{0,16}
+	ribulose-5-phosphate p_{0,3} t36 p_{0,8} p_{0,16}
+	p_{0,4} p_{0,5} t37 p_{0,15} p_{0,17}
+	p_{0,4} p_{0,6} t38 p_{0,2} p_{0,15}
+	p_{0,4} p_{0,8} t39 ribulose-5-phosphate p_{0,15}
+	p_{0,4} p_{0,11} t40 p_{0,15} p_{0,18}
+	p_{0,0} p_{0,4} t41 p_{0,7} p_{0,15}
+	p_{0,5} p_{0,7} t42 p_{0,0} p_{0,17}
+	p_{0,2} p_{0,5} t43 p_{0,6} p_{0,17}
+	ribulose-5-phosphate p_{0,5} t44 p_{0,8} p_{0,17}
+	p_{0,6} p_{0,7} t45 p_{0,0} p_{0,2}
+	p_{0,2} p_{0,6} t46 p_{0,2} p_{0,6}
+	ribulose-5-phosphate p_{0,6} t47 p_{0,2} p_{0,8}
+	p_{0,7} p_{0,8} t48 ribulose-5-phosphate p_{0,0}
+	p_{0,7} p_{0,11} t49 p_{0,0} p_{0,18}
+	p_{0,0} p_{0,7} t50 p_{0,0} p_{0,7}
+	p_{0,2} p_{0,8} t51 ribulose-5-phosphate p_{0,6}
+	ribulose-5-phosphate p_{0,8} t52 ribulose-5-phosphate p_{0,8}
+	p_{0,2} p_{0,11} t53 p_{0,6} p_{0,18}
+	ribulose-5-phosphate p_{0,11} t54 p_{0,8} p_{0,18}
+	2.0 p_{0,3} t55 p_{0,19}
+	p_{0,3} p_{0,4} t56 p_{0,9}
+	p_{0,3} p_{0,7} t57 p_{0,20}
+	p_{0,2} p_{0,3} t58 p_{0,21}
+	ribulose-5-phosphate p_{0,3} t59 p_{0,22}
+	p_{0,3} p_{0,5} t60 p_{0,12}
+	p_{0,3} p_{0,6} t61 p_{0,11}
+	p_{0,3} p_{0,8} t62 p_{0,0}
+	p_{0,3} p_{0,11} t63 p_{0,23}
+	p_{0,0} p_{0,3} t64 p_{0,24}
+	p_{0,4} p_{0,5} t65 p_{0,10}
+	p_{0,4} p_{0,6} t66 p_{0,25}
+	p_{0,4} p_{0,8} t67 p_{0,26}
+	p_{0,4} p_{0,11} t68 p_{0,27}
+	p_{0,0} p_{0,4} t69 p_{0,28}
+	p_{0,5} p_{0,7} t70 p_{0,29}
+	p_{0,2} p_{0,5} t71 p_{0,22}
+	ribulose-5-phosphate p_{0,5} t72 p_{0,30}
+	p_{0,6} p_{0,7} t73 p_{0,31}
+	p_{0,2} p_{0,6} t74 p_{0,32}
+	ribulose-5-phosphate p_{0,6} t75 p_{0,33}
+	p_{0,7} p_{0,8} t76 p_{0,34}
+	p_{0,7} p_{0,11} t77 p_{0,35}
+	p_{0,0} p_{0,7} t78 p_{0,36}
+	p_{0,2} p_{0,8} t79 p_{0,37}
+	ribulose-5-phosphate p_{0,8} t80 p_{0,38}
+	p_{0,2} p_{0,11} t81 p_{0,39}
+	ribulose-5-phosphate p_{0,11} t82 p_{0,40}
+	p_{0,3} t83 p_{0,3}
+	p_{0,4} t84 p_{0,41}
+	p_{0,7} t85 p_{0,24}
+	h2o p_{0,4} t86 p_{0,1} p_{0,14}
+	h2o p_{0,5} t87 p_{0,1} p_{0,3}
+	h2o p_{0,7} t88 p_{0,1} p_{0,18}
+	h2o p_{0,8} t89 p_{0,1} p_{0,6}
+	h2o p_{0,9} t90 p_{0,1} p_{0,39}
+	h2o p_{0,10} t91 p_{0,1} p_{0,9}
+	h2o p_{0,10} t92 p_{0,1} p_{0,40}
+	p_{0,6} t93 p_{0,42}
+	p_{0,8} t94 p_{0,43}
+	p_{0,11} t95 p_{0,2}
+]

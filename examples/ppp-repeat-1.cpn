@@ -1,0 +1,17 @@
+name "ppp-repeat-1"
+
+nodes [
+	place "h2o"
+	place "ribulose-5-phosphate"
+	place "p_{0,0}"
+	place "p_{0,1}"
+	place "p_{0,2}"
+
+	trans "t0"
+	trans "t1"
+]
+
+incidence [
+	ribulose-5-phosphate t0 p_{0,0}
+	h2o ribulose-5-phosphate t1 p_{0,1} p_{0,2}
+]

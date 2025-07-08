@@ -1,0 +1,44 @@
+name "ppp-repeat-2"
+
+nodes [
+	place "h2o"
+	place "ribulose-5-phosphate"
+	place "p_{0,0}"
+	place "p_{0,1}"
+	place "p_{0,2}"
+	place "p_{0,3}"
+	place "p_{0,4}"
+	place "p_{0,5}"
+	place "p_{0,6}"
+	place "p_{0,7}"
+	place "p_{0,8}"
+	place "p_{0,9}"
+	place "p_{0,10}"
+	place "p_{0,11}"
+
+	trans "t0"
+	trans "t1"
+	trans "t2"
+	trans "t3"
+	trans "t4"
+	trans "t5"
+	trans "t6"
+	trans "t7"
+	trans "t8"
+	trans "t9"
+	trans "t10"
+]
+
+incidence [
+	ribulose-5-phosphate t0 p_{0,0}
+	h2o ribulose-5-phosphate t1 p_{0,1} p_{0,2}
+	p_{0,0} p_{0,2} t2 p_{0,3} p_{0,4}
+	ribulose-5-phosphate p_{0,0} t3 p_{0,4} p_{0,5}
+	p_{0,0} p_{0,2} t4 p_{0,6} p_{0,7}
+	ribulose-5-phosphate p_{0,0} t5 p_{0,7} p_{0,8}
+	p_{0,0} p_{0,2} t6 p_{0,9}
+	ribulose-5-phosphate p_{0,0} t7 p_{0,10}
+	p_{0,2} t8 p_{0,11}
+	h2o p_{0,0} t9 p_{0,1} p_{0,11}
+	p_{0,0} t10 ribulose-5-phosphate
+]
