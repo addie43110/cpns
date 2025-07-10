@@ -1,3 +1,14 @@
+# CPLEX
+CPLEX_Studio221
+CPLEX
+
+# mod
+out
+summary
+
+.DS_Store
+ppp
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

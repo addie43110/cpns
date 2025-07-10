@@ -6,6 +6,9 @@ import random
 
 from pulp import *
 
+#import gurobipy as gp
+#from gurobipy import GRB
+
 from prettify import red, warn, green, blue
 from typing import List, Tuple, Dict
 from more_itertools import powerset
@@ -151,6 +154,54 @@ class cpn:
                 return (False, t_double_prime, None)
         return (True, t_double_prime, witness)
 
+    def gurobiTest(self, sm, em, forbidden_FS=[], first_n_sols = 1):
+        verb = self._verbose
+
+        # convert marking to a |P| length vector
+        m0 = [0 for i in range(len(self._places))]
+        m = [0 for i in range(len(self._places))]
+        for (pl, token_mass) in sm:
+            m0[self._p_ind_map[pl]] = token_mass
+
+        milp = gp.Model("MILPMax")
+        (t_vars, b_vars) = ({}, {})
+        sum_tokenmass = sum(m0)
+        for t in self._transitions:
+            t_vars[t] = milp.addVar(lb=0, ub=sum_tokenmass, vtype=GRB.CONTINUOUS, name=str(t))
+            b_vars[t] = milp.addVar(vtype=GRB.BINARY, name=f"b_{str(t)}")
+
+        # OBJ
+        HUGE_CONST = 1e6
+        goal_place = em[0][0]
+
+        # CONST
+        ind_to_t = {i:t for (t,i) in self._t_ind_map.items()}
+
+        # incidence (the maxmimum amount of token mass on any single place can be sum(m0))
+        pre = self.build_pre_incidence(self._transitions)
+        post = self.build_post_incidence(self._transitions)
+        c_t_prime = self.build_incidence_matrix(pre, post)
+        count = 0
+        for line in c_t_prime:
+            milp.addConstr(sum([t_vars[ind_to_t[i]]*line[i] for i in range(len(line))]) >= 0-m0[count])
+            count+=1
+
+        # b_i - t_i < 1
+        for t_i, b_i in zip(t_vars.values(), b_vars.values()):
+            milp.addConstr(b_i - t_i < 1)
+
+        # t_i - b_i * c <= 0
+        c = 1e10
+        for t_i, b_i in zip(t_vars.values(), b_vars.values()):
+            milp.addConstr(t_i - b_i * c <= 0)
+
+        # 2(\SUM t \in T') < (\SUM t \in T) + |T'|
+        constraints = []
+        sums = []
+        for fs in forbidden_FS:
+            coefs = [1 if t in fs else -1 for t in self._transitions]
+            milp.addConstr(sum([b_vars[t]*coef for (t, coef) in zip(self._transitions, coefs)]) <= (len(fs)-1))
+
     # MILPMax
     def maximize_goal_compound(self, sm, em, forbidden_FS=[], first_n_sols = 1):
         verb = self._verbose
@@ -163,7 +214,7 @@ class cpn:
         milp = LpProblem("Maximize_Goal_Compound", sense=LpMaximize)
         t_vars = LpVariable.dicts("transition", self._transitions, lowBound=0, upBound=sum(m0), cat="Continuous")
         b_vars = LpVariable.dicts("selected", self._transitions, cat="Binary")
-        HUGE_CONST = 1e9
+        HUGE_CONST = 1e6
         #HUGE_CONST = 1
         goal_place = em[0][0]
         # obj = [0 for _ in range(len(self._transitions))]
@@ -231,8 +282,8 @@ class cpn:
                 print("\n".join(witness))
                 print("")
                 mod.post.summarySection(f"Solution {sol_count} -- obj val {round(milp.objective.value()/HUGE_CONST,5)}")
-                #dg = self.turn_sol_into_DG(non_zero_transitions)
-                #self.get_flow_solutions(dg)
+                dg = self.turn_sol_into_DG(non_zero_transitions)
+                self.get_flow_solutions(dg)
                 if sol_count>=first_n_sols:
                     return (True, non_zero_transitions, milp.objective.value()/HUGE_CONST)
                 sol_count+=1
@@ -266,7 +317,7 @@ class cpn:
             test_em = [(goal_label, test_mass)]
             if verb: print(warn(f"Testing {test_mass} mass on goal compound '{goal_label}'..."))
 
-            reachable = self.at_least_reachable(sm, test_em, lim_reachability=True)
+            reachable = self.at_least_reachable(sm, test_em, lim_reachability=lim_reachability)
 
             if reachable[0] is True:
                 if verb: print(green(f"Can reach mass {test_mass}"))
@@ -498,6 +549,7 @@ class cpn:
         for s in flow.solutions:
             query = mod.causality.RealisabilityQuery(flow.dg)
             printer = mod.DGPrinter()
+            printer.withGraphImages = False
             printer.graphvizPrefix = 'layout = "dot";'
             printer.pushVertexVisible(lambda v: s.eval(mod.vertexFlow[v]) != 0)
             dag = query.findDAG(s)

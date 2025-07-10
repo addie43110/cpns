@@ -41,7 +41,7 @@ def calculate_reachable(start_marking, end_marking, net, lim_reachable=False, al
     if "min" in algs:
         print("\nMIN-REACHABLE: GOAL MARKING?\n===========================")
         start = time()
-        max_reachable_mass = net.max_min(sm=start_marking, em=end_marking, lim_reachability=True)
+        max_reachable_mass = net.max_min(sm=start_marking, em=end_marking, lim_reachability=False)
         end = time()
         times["min"] = end-start
         print(f"Maximum reachable mass is: {max_reachable_mass}")
@@ -49,6 +49,7 @@ def calculate_reachable(start_marking, end_marking, net, lim_reachable=False, al
     if "max" in algs:
         print("\nMAXIMIZE GOAL COMPOUND\n===========================")
         start = time()
+        # net.gurobiTest(sm=start_marking, em=end_marking, first_n_sols=take_first_n)
         (is_reachable, sol, obj_val) = net.maximize_goal_compound(sm=start_marking, em=end_marking, first_n_sols=take_first_n)
         end = time()
         times["max"] = end-start
@@ -95,8 +96,8 @@ def main():
     if args.max: algs.append("max")
     if len(algs)==0: algs.append("exact")
 
-    #sm = [("ribulose-5-phosphate", 1.0), ("h2o", 1.0)]
-    #em = [("fructose-6-phosphate", 1.0)]
+    sm = [("ribulose-5-phosphate", 1.0), ("h2o", 1.0)]
+    em = [("fructose-6-phosphate", 1.0)]
 
     if args.fragility:
         net.calculate_fragility(sm, em, alg='max', percent=0.25, n=5)
