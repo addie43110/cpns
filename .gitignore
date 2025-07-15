@@ -7,7 +7,6 @@ out
 summary
 
 .DS_Store
-ppp
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

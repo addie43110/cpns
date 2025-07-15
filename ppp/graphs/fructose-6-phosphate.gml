@@ -1,0 +1,70 @@
+graph [
+    node [ id 1 label "H" ]
+    node [ id 2 label "O" ]
+    edge [ source 1 target 2 label "-" ]
+    
+    node [ id 3 label "P" ]
+    node [ id 4 label "O" ]
+    node [ id 5 label "O" ]
+    node [ id 60 label "O" ]
+    node [ id 70 label "H" ]
+    edge [ source 3 target 4 label "=" ]
+    edge [ source 3 target 5 label "-" ]
+    edge [ source 3 target 60 label "-" ]
+    edge [ source 3 target 2 label "-" ]
+    edge [ source 60 target 70 label "-" ]
+
+    node [ id 6 label "C" ]
+    edge [ source 5 target 6 label "-" ]
+
+    node [ id 7 label "H" ]
+    node [ id 8 label "H" ]
+    node [ id 9 label "C" ]
+    edge [ source 6 target 7 label "-" ]
+    edge [ source 6 target 8 label "-" ]
+    edge [ source 6 target 9 label "-" ]
+
+    node [ id 90 label "O" ]
+    node [ id 900 label "H" ]
+    node [ id 91 label "H" ]
+    edge [ source 9 target 90 label "-" ]
+    edge [ source 9 target 91 label "-" ]
+    edge [ source 90 target 900 label "-" ]
+
+    node [ id 10 label "C" ]
+    edge [ source 9 target 10 label "-" ]
+
+    node [ id 100 label "O" ]
+    node [ id 101 label "H" ]
+    node [ id 1000 label "H" ]
+    edge [ source 10 target 100 label "-" ]
+    edge [ source 10 target 101 label "-" ]
+    edge [ source 100 target 1000 label "-" ]
+
+    node [ id 11 label "C" ] # double check
+    edge [ source 10 target 11 label "-" ]
+
+    node [ id 12 label "C" ]
+    node [ id 110 label "O" ]
+    node [ id 111 label "H" ]
+    node [ id 1100 label "H" ]
+    edge [ source 11 target 12 label "-" ]
+    edge [ source 11 target 110 label "-" ]
+    edge [ source 11 target 111 label "-" ]
+    edge [ source 110 target 1100 label "-" ]
+
+    node [ id 15 label "O" ]
+    node [ id 13 label "C" ]
+    edge [ source 12 target 15 label "=" ]
+    edge [ source 12 target 13 label "-" ]
+    
+    node [ id 130 label "H" ]
+    node [ id 131 label "H" ]
+    node [ id 14 label "O" ]
+    edge [ source 13 target 130 label "-" ]
+    edge [ source 13 target 131 label "-" ]
+    edge [ source 13 target 14 label "-" ]
+    
+    node [ id 140 label "H" ]
+    edge [ source 14 target 140 label "-" ]
+]

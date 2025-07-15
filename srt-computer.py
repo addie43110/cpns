@@ -17,13 +17,14 @@ def parse_args():
     parser.add_argument("--max", '-max', action='store_true', default=False)
     parser.add_argument("--fragility", '-fr', action='store_true', default=False)
     parser.add_argument("--time_test", "-tt", nargs=2, default=0)
+    parser.add_argument("--finite", '-fi', action='store_true', default=False)
     return parser.parse_args(sys.argv[1:])
 
 # Algorithms (alg) classification:
 #   - "exact" for exact reachable
 #   - "min" for mininum reachable
 #   - "max" for maximize goal compound
-def calculate_reachable(start_marking, end_marking, net, lim_reachable=False, algs=["exact"], take_first_n=1):
+def calculate_reachable(start_marking, end_marking, net, lim_reachability=True, algs=["exact"], take_first_n=1):
     print(f"\nStarting from marking {start_marking}, is it possible to get to marking {end_marking}?")
     if set(start_marking) == set(end_marking):
         print_reachability_conc(True)
@@ -41,7 +42,7 @@ def calculate_reachable(start_marking, end_marking, net, lim_reachable=False, al
     if "min" in algs:
         print("\nMIN-REACHABLE: GOAL MARKING?\n===========================")
         start = time()
-        max_reachable_mass = net.max_min(sm=start_marking, em=end_marking, lim_reachability=False)
+        max_reachable_mass = net.max_min(sm=start_marking, em=end_marking, lim_reachability=lim_reachability)
         end = time()
         times["min"] = end-start
         print(f"Maximum reachable mass is: {max_reachable_mass}")
@@ -50,7 +51,7 @@ def calculate_reachable(start_marking, end_marking, net, lim_reachable=False, al
         print("\nMAXIMIZE GOAL COMPOUND\n===========================")
         start = time()
         # net.gurobiTest(sm=start_marking, em=end_marking, first_n_sols=take_first_n)
-        (is_reachable, sol, obj_val) = net.maximize_goal_compound(sm=start_marking, em=end_marking, first_n_sols=take_first_n)
+        (is_reachable, sol, obj_val) = net.maximize_goal_compound(sm=start_marking, em=end_marking, first_n_sols=take_first_n, lim_reachability=lim_reachability)
         end = time()
         times["max"] = end-start
 
@@ -73,13 +74,13 @@ def print_reachability_conc(is_reachable):
     else:
         print(red(f"Not reachable.")) 
 
-def time_test(net, algs, lim_reachable=True, percent=0.5, num_iters=10):
+def time_test(net, algs, lim_reachability=True, percent=0.5, num_iters=10):
     places = net.places
     alg_sums = {alg[:3]:0 for alg in algs}
     for _ in range(num_iters):
         sm = [(p, 1.0) for p in sample(places, round(percent*len(places)))]
         em = [(places[randint(0,len(places)-1)], 1.0)]
-        times = calculate_reachable(sm, em, net, lim_reachable=lim_reachable, algs=algs, take_first_n=1)
+        times = calculate_reachable(sm, em, net, lim_reachability=lim_reachability, algs=algs, take_first_n=1)
         alg_sums = {alg: alg_sums[alg]+times[alg] for alg in alg_sums.keys()}
 
     alg_sums = {alg: alg_sums[alg]/num_iters for alg in alg_sums.keys()}
@@ -89,6 +90,7 @@ def time_test(net, algs, lim_reachable=True, percent=0.5, num_iters=10):
 def main():
     args = parse_args()
     net = cpn(file_name=args.cpn_file, verbose=args.verbose)
+    lim_reachable = not args.finite
 
     algs = []
     if args.exact: algs.append("exact")
@@ -102,9 +104,9 @@ def main():
     if args.fragility:
         net.calculate_fragility(sm, em, alg='max', percent=0.25, n=5)
     elif args.time_test:
-        time_test(net, algs=algs, lim_reachable=True, percent=float(args.time_test[1]), num_iters=int(args.time_test[0]))
+        time_test(net, algs=algs, lim_reachability=lim_reachable, percent=float(args.time_test[1]), num_iters=int(args.time_test[0]))
     else:
-        calculate_reachable(sm, em, net, lim_reachable=True, algs=algs, take_first_n=int(args.first_n_sols))
+        calculate_reachable(sm, em, net, lim_reachability=lim_reachable, algs=algs, take_first_n=int(args.first_n_sols))
 
 
 

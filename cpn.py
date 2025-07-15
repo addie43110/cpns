@@ -203,7 +203,7 @@ class cpn:
             milp.addConstr(sum([b_vars[t]*coef for (t, coef) in zip(self._transitions, coefs)]) <= (len(fs)-1))
 
     # MILPMax
-    def maximize_goal_compound(self, sm, em, forbidden_FS=[], first_n_sols = 1):
+    def maximize_goal_compound(self, sm, em, forbidden_FS=[], first_n_sols = 1, lim_reachability=True):
         verb = self._verbose
         # convert marking to a |P| length vector
         m0 = [0 for i in range(len(self._places))]
@@ -277,6 +277,23 @@ class cpn:
 
             firing_set = [t for t,v in non_zero_transitions]
             (succ, _, witness) = self.fireable(sm, firing_set)
+            if not lim_reachability:
+                # delete for lim-reachability
+                m_t_prime = []
+                reverse_graph = self._graph.reverse()
+                reverse_cpn = cpn(graph=reverse_graph)
+                end_marking_places = [p for (p,_) in em]
+                for t in self._transitions:
+                    for in_pl in reverse_graph.predecessors(t):
+                        if in_pl in end_marking_places:
+                            m_t_prime.append((in_pl, m[self._p_ind_map[in_pl]]))
+                    for out_pl in reverse_graph.successors(t):
+                        if out_pl in end_marking_places:
+                            m_t_prime.append((out_pl, m[self._p_ind_map[out_pl]]))
+                
+                (succRev, _, _) = reverse_cpn.fireable(marking=m_t_prime, t_prime=self._transitions.copy())
+                succ = succ and succRev
+                # end of delete for lim-reachability
             if succ:
                 print("\nPRINTING WITNESS....")
                 print("\n".join(witness))
@@ -527,10 +544,23 @@ class cpn:
 
         print(warn("\n\nMOD FLOW SOLUTION CALCULATING..."))
 
+        # extract water, ribulose, and fructose
+        # PERMANENTLY DESTROY OTHERS
+        firstname = "A"
         for vertex in dg.vertices:
-            if vertex.graph.name == "h2o": water = vertex
-            if "ribulose" in vertex.graph.name: ribuloseP = vertex
-            if "fructose" in vertex.graph.name: fructoseP = vertex
+            if vertex.graph.name == "h2o":
+                water = vertex
+                vertex.graph.name = "H2O"
+            elif "ribulose" in vertex.graph.name:
+                ribuloseP = vertex
+                vertex.graph.name = "RB"
+            elif "fructose" in vertex.graph.name:
+                fructoseP = vertex
+                vertex.graph.name = "FR"
+            else:
+                vertex.graph.name = firstname
+                firstname = chr(ord(firstname)+1)
+            
 
         flow = mod.hyperflow.Model(dg)
         flow.addSource(water)
@@ -538,7 +568,7 @@ class cpn:
         flow.addConstraint(mod.inFlow[ribuloseP] == 12)
         flow.addConstraint(mod.inFlow[water] == 2)
         flow.addSink(fructoseP)
-        flow.addConstraint(mod.outFlow[fructoseP] == 10)
+        flow.addConstraint(mod.outFlow[fructoseP] == 9)
         flow.objectiveFunction = -mod.outFlow[fructoseP]
         for v in dg.vertices:
             flow.addSink(v.graph)
@@ -546,11 +576,30 @@ class cpn:
             #verbosity=2
         )
 
+        def colour(v):
+            if v.graph.name == "H2O":
+                return "blue"
+            if v.graph.name == "RB":
+                return "red"
+            if v.graph.name == "FR":
+                return "green"
+            return "black"
+
         for s in flow.solutions:
             query = mod.causality.RealisabilityQuery(flow.dg)
             printer = mod.DGPrinter()
             printer.withGraphImages = False
+            printer.withShortcutEdges = True
+            #gp = printer.graphPrinter
+            #gp.withGraphvizCoords = True
+            #gp.graphvizPrefix = 'fontsize="40"'
             printer.graphvizPrefix = 'layout = "dot";'
+            printer.tikzpictureOption = 'node/.style={ultra thick, minimum size=100mm}'
+            #printer.tikzpictureOption = 'ultra thick, minimum size=100mm'
+            printer.withRuleName = False
+            printer.withRuleId = False
+            printer.withGraphName = True
+            printer.pushVertexColour(colour, extendToEdges=False)
             printer.pushVertexVisible(lambda v: s.eval(mod.vertexFlow[v]) != 0)
             dag = query.findDAG(s)
             if dag:
